@@ -102,6 +102,22 @@ const CheckIcon = () => (
   </svg>
 )
 
+const CheckCircleIcon = () => (
+  <svg
+    className="h-6 w-6 text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+)
+
 const ZapIcon = () => (
   <svg
     className="h-5 w-5 text-yellow-400"
@@ -202,7 +218,12 @@ export default function GBLBudgetPresentation() {
     return () => observer.disconnect()
   }, [isClient])
 
-  type Substep = { name: string; value: number; justification: string }
+  type Substep = {
+    name: string
+    value: number
+    justification: string
+    completed?: boolean
+  }
   type Module = {
     id: number
     key: string
@@ -343,6 +364,7 @@ export default function GBLBudgetPresentation() {
           value: 300,
           justification:
             "Templates dinâmicos, merge de dados de locação e versionamento de termos.",
+          completed: true,
         },
         {
           name: "Integração ZapSign/Webhooks",
@@ -415,7 +437,7 @@ export default function GBLBudgetPresentation() {
       key: "E8",
       title: "Etapa 8 — IA de Recomendação + SEO Avançado",
       total: 1000,
-      paid: 300,
+      paid: 700,
       substeps: [
         {
           name: "Recomendação IA",
@@ -427,6 +449,7 @@ export default function GBLBudgetPresentation() {
           name: "SEO Técnico Avançado",
           value: 400,
           justification: "Schemas, metas, otimização LCP/CLS e pré-render.",
+          completed: true,
         },
       ],
     },
@@ -687,8 +710,9 @@ export default function GBLBudgetPresentation() {
               <div className="text-sm font-bold tracking-wider text-purple-300">
                 {m.key}
               </div>
-              <h3 className="pr-4 text-xl font-bold leading-tight tracking-tight text-white">
+              <h3 className="flex items-center gap-2 pr-4 text-xl font-bold leading-tight tracking-tight text-white">
                 {m.title}
+                {isCompleted && <CheckCircleIcon />}
               </h3>
             </div>
           </div>
@@ -727,34 +751,63 @@ export default function GBLBudgetPresentation() {
           </div>
 
           <div className="space-y-4">
-            {m.substeps.map((s, i) => (
-              <div
-                key={i}
-                className="group/substep duration-600 flex items-start gap-4 rounded-2xl border border-transparent bg-gradient-to-r from-purple-800/15 to-transparent p-4 backdrop-blur-xl transition-all ease-in-out hover:border-purple-400/25 hover:from-purple-700/25 hover:to-violet-800/15"
-              >
+            {m.substeps.map((s, i) => {
+              const isSubstepCompleted = isCompleted || s.completed === true
+              return (
                 <div
-                  className={`mt-2 h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-br shadow-lg ${
-                    [
-                      "from-purple-400 to-purple-600",
-                      "from-violet-400 to-violet-600",
-                      "from-purple-300 to-purple-500",
-                      "from-violet-300 to-violet-500",
-                    ][i % 4]
-                  }`}
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="mb-1 text-sm font-semibold text-white">
-                    {s.name}
+                  key={i}
+                  className="group/substep duration-600 flex items-start gap-4 rounded-2xl border border-transparent bg-gradient-to-r from-purple-800/15 to-transparent p-4 backdrop-blur-xl transition-all ease-in-out hover:border-purple-400/25 hover:from-purple-700/25 hover:to-violet-800/15"
+                >
+                  <div
+                    className={`mt-2 h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-br shadow-lg ${
+                      [
+                        "from-purple-400 to-purple-600",
+                        "from-violet-400 to-violet-600",
+                        "from-purple-300 to-purple-500",
+                        "from-violet-300 to-violet-500",
+                      ][i % 4]
+                    }`}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div
+                      className={`mb-1 text-sm font-semibold text-white ${
+                        isSubstepCompleted ? "relative" : ""
+                      }`}
+                      style={
+                        isSubstepCompleted
+                          ? {
+                              textDecoration: "line-through",
+                              textDecorationColor: "#ffffff",
+                              textDecorationThickness: "1.5px",
+                              textDecorationStyle: "solid",
+                            }
+                          : {}
+                      }
+                    >
+                      {s.name}
+                    </div>
+                    <p className="text-xs leading-relaxed text-purple-200">
+                      {s.justification}
+                    </p>
                   </div>
-                  <p className="text-xs leading-relaxed text-purple-200">
-                    {s.justification}
-                  </p>
+                  <div
+                    className="whitespace-nowrap rounded-full border border-purple-400/25 bg-gradient-to-r from-purple-800/50 to-violet-800/50 px-3 py-1 text-sm font-bold text-white backdrop-blur-xl"
+                    style={
+                      isSubstepCompleted
+                        ? {
+                            textDecoration: "line-through",
+                            textDecorationColor: "#ffffff",
+                            textDecorationThickness: "2px",
+                            textDecorationStyle: "solid",
+                          }
+                        : {}
+                    }
+                  >
+                    {brl.format(s.value)}
+                  </div>
                 </div>
-                <div className="whitespace-nowrap rounded-full border border-purple-400/25 bg-gradient-to-r from-purple-800/50 to-violet-800/50 px-3 py-1 text-sm font-bold text-white backdrop-blur-xl">
-                  {brl.format(s.value)}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
