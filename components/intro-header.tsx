@@ -111,27 +111,29 @@ const IntroHeader = () => {
           />
         )}
       </Link>
-      <nav>
-        <ul
-          hidden={!isReady && !isMobileMenuOpen && !isNavVisible}
-          className={`${isNavVisible ? "animate_nav" : ""} ${isMobileMenuOpen ? "active" : ""}`}
-        >
-          {navLinks.map(link => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={e => {
-                  handleLinkClick(e, link.href)
-                  setIsMobileMenuOpen(false)
-                }}
-                aria-label={`Ir para ${link.label}`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="header-inner">
+        <nav>
+          <ul
+            hidden={!isReady && !isMobileMenuOpen && !isNavVisible}
+            className={`${isNavVisible ? "animate_nav" : ""} ${isMobileMenuOpen ? "active" : ""}`}
+          >
+            {navLinks.map(link => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={e => {
+                    handleLinkClick(e, link.href)
+                    setIsMobileMenuOpen(false)
+                  }}
+                  aria-label={`Ir para ${link.label}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
       <button
         type="button"
         className={`hamburger ${isNavVisible ? "nav-ready" : ""} ${isMobileMenuOpen ? "active" : ""}`}

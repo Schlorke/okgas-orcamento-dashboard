@@ -92,7 +92,7 @@
   /* Scrollbar: track preto, thumb e setas azul */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #2563eb #000000;
+    scrollbar-color: #60a5fa #000000;
   }
 
   *::-webkit-scrollbar {
@@ -105,13 +105,13 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background: #2563eb;
+    background: #60a5fa;
     border-radius: 6px;
     border: 2px solid #000000;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: #3b82f6;
+    background: #93c5fd;
   }
 
   *::-webkit-scrollbar-button {
@@ -136,25 +136,25 @@
   /* Setas em azul (via pseudo ou ícone) - WebKit não estiliza seta nativa, então setas ficam no track preto; thumb azul */
   *::-webkit-scrollbar-button:vertical:decrement {
     background: #000000
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%232563eb' d='M4 2L1 5h6L4 2z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%2360a5fa' d='M4 2L1 5h6L4 2z'/%3E%3C/svg%3E")
       no-repeat center;
   }
 
   *::-webkit-scrollbar-button:vertical:increment {
     background: #000000
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%232563eb' d='M4 6L1 3h6l-3 3z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%2360a5fa' d='M4 6L1 3h6l-3 3z'/%3E%3C/svg%3E")
       no-repeat center;
   }
 
   *::-webkit-scrollbar-button:horizontal:decrement {
     background: #000000
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%232563eb' d='M2 4L5 1v6L2 4z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%2360a5fa' d='M2 4L5 1v6L2 4z'/%3E%3C/svg%3E")
       no-repeat center;
   }
 
   *::-webkit-scrollbar-button:horizontal:increment {
     background: #000000
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%232563eb' d='M6 4L3 1v6l3-3z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%2360a5fa' d='M6 4L3 1v6l3-3z'/%3E%3C/svg%3E")
       no-repeat center;
   }
 }
@@ -231,210 +231,9 @@
     animation: very-slow-pulse 4s ease-in-out infinite;
   }
 
-  /* ESTILOS MUITO FORTES PARA REMOVER O BRANCO DOS CHARTS */
-  .recharts-bar-rectangle,
-  .recharts-bar-rectangle:hover,
-  .recharts-bar-rectangle:focus,
-  .recharts-bar-rectangle:active,
-  .recharts-bar-rectangle:visited {
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
-    background-blend-mode: normal !important;
-    fill-opacity: 1 !important;
-    transition: fill-opacity 0.3s ease-in-out;
-  }
-
-  /* Hover apenas muda a opacidade, SEM BACKGROUND */
-  .recharts-bar-rectangle:hover {
-    fill-opacity: 0.7 !important;
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
-  }
-
-  /* REMOVENDO TODOS OS BACKGROUNDS BRANCOS */
-  .recharts-tooltip-wrapper,
-  .recharts-default-tooltip,
-  .recharts-tooltip-content,
-  .recharts-tooltip-content-wrapper {
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
-  }
-
-  /* GARANTINDO QUE OS CHARTS SEJAM TRANSPARENTES */
-  .recharts-wrapper,
-  .recharts-surface,
-  .recharts-legend-wrapper,
-  .recharts-legend-item {
-    background-color: transparent !important;
-    background: transparent !important;
-  }
-
-  /* SOBRESCREVENDO QUALQUER CSS DO RECHARTS */
-  .recharts-bar-rectangle[style*="background"],
-  .recharts-bar-rectangle[style*="background-color"] {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ESTILOS INLINE MUITO FORTES */
-  .recharts-bar-rectangle {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-  }
-
-  /* REMOVENDO QUALQUER HOVER BRANCO */
-  .recharts-bar-rectangle:hover,
-  .recharts-bar-rectangle:hover * {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-  }
-
-  /* SOBRESCREVENDO COM CSS INLINE */
-  .recharts-bar-rectangle[style] {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ESTILOS PARA SVG - REMOVENDO BACKGROUND BRANCO */
-  .recharts-bar-rectangle svg,
-  .recharts-bar-rectangle svg * {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* SOBRESCREVENDO QUALQUER ESTILO PADRÃO */
-  .recharts-bar-rectangle,
-  .recharts-bar-rectangle * {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-  }
-
-  /* FORÇANDO TRANSPARÊNCIA EM TODOS OS ESTADOS */
-  .recharts-bar-rectangle:before,
-  .recharts-bar-rectangle:after {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ESTILOS ESPECÍFICOS PARA TEMA DARK */
-  .dark .recharts-bar-rectangle,
-  .dark .recharts-bar-rectangle:hover,
-  .dark .recharts-bar-rectangle:focus,
-  .dark .recharts-bar-rectangle:active {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-  }
-
-  /* SOBRESCREVENDO QUALQUER CSS DO TEMA LIGHT */
-  html:not(.dark) .recharts-bar-rectangle,
-  html:not(.dark) .recharts-bar-rectangle:hover {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ESTILOS INLINE MUITO FORTES PARA TEMA DARK */
-  .dark .recharts-bar-rectangle[style] {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* FORÇANDO TEMA DARK NO BODY */
-  body {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-  }
-
-  /* REMOVENDO QUALQUER BACKGROUND BRANCO DO BODY */
-  body,
-  html {
-    background: #000000 !important;
-    background-color: #000000 !important;
-  }
-
-  /* ESTILOS ESPECÍFICOS PARA O ELEMENTO QUE ESTÁ BRANCO */
-  .recharts-tooltip-cursor,
-  .recharts-tooltip-cursor:hover,
-  .recharts-tooltip-cursor:focus,
-  .recharts-tooltip-cursor:active {
-    fill: rgba(139, 92, 246, 0.2) !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    opacity: 1 !important;
-  }
-
-  /* REMOVENDO O FILL CINZA/BRANCO */
-  .recharts-tooltip-cursor[fill="#ccc"],
-  .recharts-tooltip-cursor[fill="#cccccc"],
-  .recharts-tooltip-cursor[fill="ccc"] {
-    fill: transparent !important;
-    background: transparent !important;
-  }
-
-  /* SOBRESCREVENDO QUALQUER ESTILO INLINE */
-  .recharts-tooltip-cursor[style] {
-    fill: transparent !important;
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* REMOVENDO TODOS OS ELEMENTOS BRANCOS/CINZAS DOS CHARTS */
-  .recharts-rectangle,
-  .recharts-rectangle:hover,
-  .recharts-rectangle:focus,
-  .recharts-rectangle:active {
-    fill: rgba(139, 92, 246, 0.15) !important;
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ESPECIFICAMENTE PARA ELEMENTOS COM FILL CINZA */
-  .recharts-rectangle[fill="#ccc"],
-  .recharts-rectangle[fill="#cccccc"],
-  .recharts-rectangle[fill="ccc"],
-  .recharts-rectangle[fill="lightgray"],
-  .recharts-rectangle[fill="lightgrey"] {
-    fill: rgba(139, 92, 246, 0.2) !important;
-    background: transparent !important;
-  }
-
-  /* REMOVENDO QUALQUER ELEMENTO COM COR CLARA */
-  .recharts-rectangle[fill*="light"],
-  .recharts-rectangle[fill*="white"],
-  .recharts-rectangle[fill*="gray"] {
-    fill: transparent !important;
-    background: transparent !important;
-  }
-
-  /* SOBRESCREVENDO QUALQUER ELEMENTO SVG COM FILL CLARO */
-  svg .recharts-rectangle,
-  svg .recharts-tooltip-cursor,
-  svg .recharts-bar-rectangle {
-    fill: rgba(139, 92, 246, 0.15) !important;
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* FORÇANDO TRANSPARÊNCIA EM TODOS OS ELEMENTOS RECTANGLE */
-  .recharts-rectangle[class*="recharts"],
-  .recharts-tooltip-cursor[class*="recharts"],
-  .recharts-bar-rectangle[class*="recharts"] {
-    fill: transparent !important;
-    background: transparent !important;
-  }
-
-  /* ESTILOS INLINE MUITO FORTES PARA SVG */
-  svg [fill="#ccc"],
-  svg [fill="#cccccc"],
-  svg [fill="ccc"] {
-    fill: rgba(139, 92, 246, 0.2) !important;
-    background: transparent !important;
+  /* Tooltip cursor: fundo sutil ao passar o mouse nos charts */
+  .recharts-tooltip-cursor {
+    fill: rgba(96, 165, 250, 0.1) !important;
   }
 
   /* ======================================== */
@@ -574,9 +373,21 @@ body.intro-complete .floating-action-button {
     visibility 0.6s ease;
 }
 
-/* Compensar o header fixo de 80px */
+/* Viewport dinâmico para evitar inconsistências de 100vh no iOS */
+:root {
+  --intro-header-collapsed-height: calc(80px + env(safe-area-inset-top, 0px));
+  --intro-header-expanded-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --intro-header-expanded-height: 100dvh;
+  }
+}
+
+/* Compensar o header fixo de 80px + safe area do notch */
 .main {
-  padding-top: 80px;
+  padding-top: var(--intro-header-collapsed-height);
 }
 
 /* 2. Header base (estado inicial: tela cheia) – apenas o header da intro */
@@ -588,16 +399,19 @@ header.intro-header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: var(--intro-header-expanded-height);
   background-color: rgb(0, 0, 0);
   z-index: 1000;
+  padding-top: env(safe-area-inset-top, 0px);
+  overflow: hidden;
+  isolation: isolate;
   transition:
     height 1s ease,
     background-color 1s ease;
 }
 
 header.intro-header.animate_header {
-  height: 80px;
+  height: var(--intro-header-collapsed-height);
   background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -626,25 +440,27 @@ header.intro-header.header-preload nav ul {
   }
 }
 
-/* 4. Logo – height-based sizing (suporta logos verticais/quadradas) */
+/* 4. Logo – fixa no viewport para não depender do height em transição do header */
 header.intro-header .logo {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 50vh;
+  top: 50svh;
+  top: 50dvh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1100;
   transition:
-    transform 1s ease,
     top 1s ease,
     left 1s ease;
 }
 
 header.intro-header.animate_header .logo {
-  top: 50%;
+  top: calc(env(safe-area-inset-top, 0px) + 40px);
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 header.intro-header .logo img,
@@ -686,22 +502,46 @@ header.intro-header.header-stable .logo img {
 
 /* 5. Header-background */
 header.intro-header .header-background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
+  width: 100%;
+  height: var(--intro-header-expanded-height);
+  z-index: 0;
   overflow: hidden;
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
+  transition: opacity 1s ease;
   pointer-events: none;
 }
 
 header.intro-header.animate_header .header-background {
   opacity: 0;
-  transform: translateY(-100%);
+}
+
+/* 5.5. Header inner – alinha nav ao conteúdo central (max-w-7xl px-4 sm:px-6) */
+header.intro-header .header-inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: env(safe-area-inset-top, 0px);
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1100;
+}
+
+@media (min-width: 640px) {
+  header.intro-header .header-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /* 6. Navegação */
@@ -711,6 +551,13 @@ header.intro-header nav {
   position: absolute;
   right: 0;
   margin-right: 40px;
+}
+
+/* Nav dentro do header-inner: participa do flex, alinhada ao conteúdo central */
+header.intro-header .header-inner nav {
+  position: static;
+  right: auto;
+  margin-right: 0;
 }
 
 header.intro-header nav ul {
@@ -748,16 +595,15 @@ header.intro-header nav ul li a {
 }
 
 header.intro-header nav ul li a:hover {
-  background: #2563eb;
+  background: #60a5fa;
   color: #fff;
 }
 
 /* 7. Desktop – valores fixos */
 @media (min-width: 785px) {
   header.intro-header.animate_header .logo {
-    left: 40px;
-    top: 50%;
-    transform: translate(0, -50%);
+    left: calc((100vw - min(100vw, 80rem)) / 2 + 1.5rem + 26px);
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
   }
 
   header.intro-header nav {
@@ -768,9 +614,18 @@ header.intro-header nav ul li a:hover {
     width: auto;
     padding-inline: 0;
     justify-content: flex-end;
-    top: 0;
+    top: env(safe-area-inset-top, 0px);
     height: 80px;
     align-items: center;
+  }
+
+  /* Nav dentro do header-inner: alinhada ao conteúdo central, sem position nas extremidades */
+  header.intro-header .header-inner nav {
+    position: static;
+    left: auto;
+    right: auto;
+    margin-right: 0;
+    width: auto;
   }
 
   header.intro-header nav ul {
@@ -788,7 +643,7 @@ header.intro-header nav ul li a:hover {
 /* 9. Mobile */
 @media (max-width: 784px) {
   header.intro-header {
-    height: 100vh;
+    height: var(--intro-header-expanded-height);
     background-color: rgba(0, 0, 0, 0.9);
     transition:
       height 1s ease,
@@ -796,21 +651,19 @@ header.intro-header nav ul li a:hover {
   }
 
   header.intro-header.animate_header {
-    height: 80px;
+    height: var(--intro-header-collapsed-height);
     background-color: rgba(0, 0, 0, 0.9);
   }
 
   header.intro-header .logo {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 1s ease;
+    transition:
+      top 1s ease,
+      left 1s ease;
   }
 
   header.intro-header.animate_header .logo {
-    left: 35px;
-    top: 50%;
-    transform: translate(0, -50%);
+    left: calc((100vw - min(100vw, 80rem)) / 2 + 1rem + 24px);
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
   }
 
   header.intro-header .logo img,
@@ -842,7 +695,7 @@ header.intro-header nav ul li a:hover {
     background: transparent;
     border: none;
     cursor: pointer;
-    top: 50%;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
     right: 35px;
     transform: translateY(-50%) translateX(50px);
     opacity: 0;
@@ -863,7 +716,7 @@ header.intro-header nav ul li a:hover {
     display: block;
     height: 4px;
     width: 100%;
-    background: #2563eb;
+    background: #60a5fa;
     border-radius: 2px;
     margin-bottom: 4px;
     transition: all 0.3s ease;
@@ -890,8 +743,8 @@ header.intro-header nav ul li a:hover {
     position: fixed;
     inset: 0;
     transform: translateX(100%);
-    height: 100vh;
-    min-height: 100vh;
+    height: var(--intro-header-expanded-height);
+    min-height: var(--intro-header-expanded-height);
     width: 100%;
     background-color: rgba(0, 0, 0, 0.94);
     padding: 96px 40px 120px;

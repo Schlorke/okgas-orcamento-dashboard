@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "next build --webpack",
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0",
     "type-check": "tsc --noEmit",
     "fix:all": "prettier --write . && eslint --fix . && remark . --output --use remark-preset-prettier",
     "format": "prettier --write .",

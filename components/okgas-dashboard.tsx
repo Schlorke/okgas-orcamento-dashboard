@@ -946,37 +946,15 @@ export default function OkGasDashboard() {
                   <Bar
                     dataKey="Pago"
                     stackId="a"
-                    fill="url(#paidGradient)"
+                    fill="#3b82f6"
                     radius={[8, 8, 0, 0]}
                   />
                   <Bar
                     dataKey="Restante"
                     stackId="a"
-                    fill="url(#remainingGradient)"
+                    fill="#60a5fa"
                     radius={[8, 8, 0, 0]}
                   />
-                  <defs>
-                    <linearGradient
-                      id="paidGradient"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#60a5fa" />
-                      <stop offset="100%" stopColor="#3b82f6" />
-                    </linearGradient>
-                    <linearGradient
-                      id="remainingGradient"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#93c5fd" />
-                      <stop offset="100%" stopColor="#2563eb" />
-                    </linearGradient>
-                  </defs>
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -1085,48 +1063,6 @@ export default function OkGasDashboard() {
             <ChartContainer>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={market}>
-                  <defs>
-                    <linearGradient
-                      id="marketGradient0"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#60a5fa" />
-                      <stop offset="100%" stopColor="#3b82f6" />
-                    </linearGradient>
-                    <linearGradient
-                      id="marketGradient1"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#93c5fd" />
-                      <stop offset="100%" stopColor="#2563eb" />
-                    </linearGradient>
-                    <linearGradient
-                      id="marketGradient2"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#2563eb" />
-                      <stop offset="100%" stopColor="#1d4ed8" />
-                    </linearGradient>
-                    <linearGradient
-                      id="marketGradient3"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#1d4ed8" />
-                      <stop offset="100%" stopColor="#1e40af" />
-                    </linearGradient>
-                  </defs>
                   <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                   <XAxis
                     dataKey="label"
@@ -1154,10 +1090,12 @@ export default function OkGasDashboard() {
                     itemStyle={{ color: "#ffffff" }}
                   />
                   <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                    {market.map((entry, index) => (
+                    {market.map((_, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={`url(#marketGradient${index})`}
+                        fill={
+                          ["#60a5fa", "#3b82f6", "#2563eb", "#1d4ed8"][index]
+                        }
                       />
                     ))}
                   </Bar>
