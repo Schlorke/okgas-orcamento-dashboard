@@ -5,13 +5,13 @@ que tornamos este projeto ainda melhor.
 
 ## 📋 Índice
 
-- [Código de Conduta](#código-de-conduta)
-- [Como Posso Contribuir?](#como-posso-contribuir)
-- [Processo de Desenvolvimento](#processo-de-desenvolvimento)
-- [Padrões de Código](#padrões-de-código)
-- [Processo de Pull Request](#processo-de-pull-request)
-- [Reportando Bugs](#reportando-bugs)
-- [Sugerindo Melhorias](#sugerindo-melhorias)
+* [Código de Conduta](#código-de-conduta)
+* [Como Posso Contribuir?](#como-posso-contribuir)
+* [Processo de Desenvolvimento](#processo-de-desenvolvimento)
+* [Padrões de Código](#padrões-de-código)
+* [Processo de Pull Request](#processo-de-pull-request)
+* [Reportando Bugs](#reportando-bugs)
+* [Sugerindo Melhorias](#sugerindo-melhorias)
 
 ## 📜 Código de Conduta
 
@@ -97,9 +97,9 @@ pnpm run quality:fix
 
 Seguimos os padrões estabelecidos pelo:
 
-- **ESLint** - para linting de JavaScript/TypeScript
-- **Prettier** - para formatação consistente
-- **TypeScript** - para tipagem estática
+* **ESLint** - para linting de JavaScript/TypeScript
+* **Prettier** - para formatação consistente
+* **TypeScript** - para tipagem estática
 
 ### 📏 Convenções
 
@@ -177,12 +177,12 @@ export default Component
 
 ### ✅ Checklist Antes de Enviar
 
-- \[ ] **Branch atualizada** - rebase com main/master
-- \[ ] **Testes passando** - `pnpm run test`
-- \[ ] **Linting limpo** - `pnpm run lint`
-- \[ ] **Build funcionando** - `pnpm run build`
-- \[ ] **Documentação atualizada** - se necessário
-- \[ ] **Commits limpos** - use squash se necessário
+* \[ ] **Branch atualizada** - rebase com main/master
+* \[ ] **Testes passando** - `pnpm run test`
+* \[ ] **Linting limpo** - `pnpm run lint`
+* \[ ] **Build funcionando** - `pnpm run build`
+* \[ ] **Documentação atualizada** - se necessário
+* \[ ] **Commits limpos** - use squash se necessário
 
 ### 📝 Template de Pull Request
 
@@ -275,29 +275,28 @@ quando [...]
 
 Usamos labels para organizar issues e PRs:
 
-- **🐛 bug** - Algo não está funcionando
-- **💡 enhancement** - Nova feature ou melhoria
-- **📚 documentation** - Melhorias na documentação
-- **❓ question** - Pergunta ou discussão
-- **🚀 feature** - Nova funcionalidade
-- **🔧 maintenance** - Manutenção técnica
-- **🎨 ui/ux** - Melhorias de interface
+* **🐛 bug** - Algo não está funcionando
+* **💡 enhancement** - Nova feature ou melhoria
+* **📚 documentation** - Melhorias na documentação
+* **❓ question** - Pergunta ou discussão
+* **🚀 feature** - Nova funcionalidade
+* **🔧 maintenance** - Manutenção técnica
+* **🎨 ui/ux** - Melhorias de interface
 
 ## 🎯 Prioridades
 
-- **P1** - Crítico (bugs que quebram a aplicação)
-- **P2** - Alto (features importantes)
-- **P3** - Médio (melhorias)
-- **P4** - Baixo (nice-to-have)
+* **P1** - Crítico (bugs que quebram a aplicação)
+* **P2** - Alto (features importantes)
+* **P3** - Médio (melhorias)
+* **P4** - Baixo (nice-to-have)
 
 ## 📞 Precisa de Ajuda?
 
-- **📖 Documentação**: [docs/README.md](./docs/README.md)
-- **💬 Discussions**:
-  [GitHub Discussions](https://github.com/okgas/dashboard-executivo/discussions)
-- **📧 Email**: <contato@okgas.eng.br>
+* **📖 Documentação**: [docs/README.md](./docs/README.md)
+* **💬 Discussions**: [GitHub Discussions](https://github.com/okgas/dashboard-executivo/discussions)
+* **📧 Email**: <contato@okgas.eng.br>
 
----
+***
 
 **Obrigado por contribuir! 🙏**
 

@@ -20,7 +20,7 @@ import PDFExport from "./pdf-export"
 
 const BarChartIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -30,7 +30,7 @@ const BarChartIcon = () => (
 
 const TrendingUpIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ const TrendingUpIcon = () => (
 
 const PieChartIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -56,7 +56,7 @@ const PieChartIcon = () => (
 
 const MapIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ const MapIcon = () => (
 
 const ClipboardListIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -86,25 +86,13 @@ const ClipboardListIcon = () => (
   </svg>
 )
 
-const CheckIcon = () => (
+const CheckCircleIcon = ({
+  className = "h-6 w-6 text-white",
+}: {
+  className?: string
+}) => (
   <svg
-    className="h-5 w-5 text-green-400"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M5 13l4 4L19 7"
-    />
-  </svg>
-)
-
-const CheckCircleIcon = () => (
-  <svg
-    className="h-6 w-6 text-white"
+    className={className}
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -118,23 +106,9 @@ const CheckCircleIcon = () => (
   </svg>
 )
 
-const ZapIcon = () => (
-  <svg
-    className="h-5 w-5 text-yellow-400"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-  >
-    <path
-      fillRule="evenodd"
-      d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
-
 const BuildingIcon = () => (
   <svg
-    className="h-6 w-6 text-purple-300"
+    className="h-6 w-6 text-blue-300"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -148,35 +122,35 @@ const BuildingIcon = () => (
   </svg>
 )
 
-// Hook otimizado para detectar elementos na viewport (mobile-first) - SEM DEPENDÊNCIAS PROBLEMÁTICAS
-const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
+// Hook otimizado para detectar elementos na viewport (mobile-first)
+const useIntersectionObserver = (options?: IntersectionObserverInit) => {
   const [hasBeenVisible, setHasBeenVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const optionsRef = useRef(options)
 
   useEffect(() => {
     const element = ref.current
     if (!element || hasBeenVisible) return
 
-    // Detectar viewport mobile para ajustar threshold dinamicamente
     const isMobile = window.innerWidth < 768
-    const defaultThreshold = isMobile ? 0.15 : 0.6
-    const defaultRootMargin = isMobile ? "50px 0px" : "0px"
+    const opts = optionsRef.current
+    const threshold = opts?.threshold ?? (isMobile ? 0.05 : 0.3)
+    const rootMargin = opts?.root
+      ? undefined
+      : isMobile
+        ? "100px 0px"
+        : "50px 0px"
 
     observerRef.current = new IntersectionObserver(
       entries => {
         const [entry] = entries
         if (entry.isIntersecting) {
           setHasBeenVisible(true)
-          // Parar de observar após primeira intersecção
           observerRef.current?.unobserve(element)
         }
       },
-      {
-        threshold: defaultThreshold,
-        rootMargin: defaultRootMargin,
-        ...options,
-      }
+      { threshold, rootMargin }
     )
 
     observerRef.current.observe(element)
@@ -184,7 +158,7 @@ const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
     return () => {
       observerRef.current?.disconnect()
     }
-  }, [hasBeenVisible, options]) // Adicionando dependências necessárias
+  }, [hasBeenVisible])
 
   return [ref, hasBeenVisible] as const
 }
@@ -456,7 +430,7 @@ export default function OkGasDashboard() {
     { name: "A Receber", value: totalRemaining },
   ]
 
-  const pieColors = ["#a78bfa", "#c4b5fd", "#ddd6fe", "#ede9fe"]
+  const pieColors = ["#60a5fa", "#93c5fd", "#bfdbfe", "#dbeafe"]
 
   // Componente Header com animação
   const HeaderContent = ({
@@ -479,18 +453,18 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between ${
+        className={`scroll-reveal-element flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-300/25 bg-gradient-to-r from-purple-400/15 to-violet-400/15 px-4 py-2 backdrop-blur-2xl">
-            <div className="h-2 w-2 animate-pulse rounded-full bg-purple-300" />
-            <span className="text-sm font-medium text-purple-200">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-gradient-to-r from-blue-400/15 to-sky-400/15 px-4 py-2 backdrop-blur-2xl">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-blue-300" />
+            <span className="text-sm font-medium text-blue-200">
               Proposta Comercial
             </span>
           </div>
-          <h1 className="bg-gradient-to-r from-white via-purple-200 to-violet-300 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
+          <h1 className="bg-gradient-to-r from-white via-blue-200 to-sky-300 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
             OK Gás Engenharia
           </h1>
           <p className="text-lg font-medium text-gray-300">
@@ -532,31 +506,33 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth duration-600 group relative cursor-pointer overflow-hidden rounded-3xl border border-purple-300/15 bg-gradient-to-br from-purple-900/30 via-violet-900/20 to-purple-800/15 p-6 shadow-2xl backdrop-blur-3xl transition-all ease-in-out will-change-transform hover:shadow-purple-400/20 ${
+        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:shadow-blue-400/20 sm:rounded-3xl sm:p-6 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="from-purple-400/8 to-violet-400/8 duration-600 absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-all ease-in-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/8 via-transparent to-sky-400/8 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
         <div className="relative z-10">
-          <div className="mb-2 text-sm font-medium text-purple-200">
+          <div className="mb-1 text-xs font-medium text-blue-200 sm:mb-2 sm:text-sm">
             {label}
           </div>
-          <div className="mb-1 bg-gradient-to-r from-white via-purple-100 to-violet-200 bg-clip-text text-3xl font-bold tracking-tight text-transparent">
+          <div className="mb-1 bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
             {value}
           </div>
           {hint && (
-            <div className="text-xs text-purple-300 opacity-80">{hint}</div>
+            <div className="text-xs text-blue-300 opacity-80">{hint}</div>
           )}
         </div>
-        <div className="hover-scale-smooth duration-600 animate-slow-pulse absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-purple-300/30 to-violet-300/30 blur-xl transition-all ease-in-out will-change-transform group-hover:scale-150" />
+        <div className="hover-scale-smooth animate-slow-pulse absolute -top-4 -right-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-300/30 to-sky-300/30 blur-xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
       </div>
     )
   }
 
   const Section = ({
+    id,
     title,
     children,
   }: {
+    id?: string
     title: string | React.ReactNode
     children: React.ReactNode
   }) => {
@@ -564,12 +540,13 @@ export default function OkGasDashboard() {
 
     return (
       <section
+        id={id}
         ref={ref}
-        className={`scroll-reveal-element space-y-6 ${
+        className={`scroll-reveal-element space-y-4 sm:space-y-6 ${id ? "scroll-mt-20" : ""} ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <h2 className="bg-gradient-to-r from-white via-purple-100 to-violet-200 bg-clip-text text-2xl font-bold tracking-tight text-transparent">
+        <h2 className="bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
           {title}
         </h2>
         {children}
@@ -589,11 +566,11 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl will-change-shadow duration-600 relative h-80 overflow-hidden rounded-3xl border border-purple-300/15 bg-gradient-to-br from-purple-900/30 via-violet-900/20 to-purple-800/15 p-6 shadow-2xl backdrop-blur-3xl transition-all ease-in-out hover:shadow-purple-400/20 ${className} ${
+        className={`scroll-reveal-element hover:shadow-3xl will-change-shadow relative h-72 overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-3 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-blue-400/20 sm:h-80 sm:rounded-3xl sm:p-6 ${className} ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 via-transparent to-violet-400/5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-sky-400/5" />
         <div className="relative z-10 h-full">{children}</div>
       </div>
     )
@@ -618,104 +595,110 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth duration-600 group relative cursor-pointer overflow-hidden rounded-2xl border border-purple-300/15 bg-gradient-to-br from-purple-900/30 via-violet-900/20 to-purple-800/15 p-6 shadow-2xl backdrop-blur-3xl transition-all ease-in-out will-change-transform hover:scale-[1.02] sm:rounded-3xl sm:p-8 ${
+        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:scale-[1.02] sm:rounded-3xl sm:p-8 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute right-4 top-4 z-20 sm:right-6 sm:top-6">
-          {isCompleted ? (
-            <div className="flex items-center gap-2 rounded-full border border-purple-300/35 bg-gradient-to-br from-purple-400/25 to-violet-500/25 px-3 py-1 backdrop-blur-xl">
-              <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
-              <span className="text-xs font-medium text-white">Concluída</span>
-            </div>
-          ) : isActive ? (
-            <div className="flex items-center gap-2 rounded-full border border-violet-300/35 bg-gradient-to-br from-violet-400/25 to-purple-500/25 px-3 py-1 backdrop-blur-xl">
-              <div className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
-              <span className="text-xs font-medium text-white">
-                Em Andamento
-              </span>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 rounded-full border border-gray-400/35 bg-gradient-to-br from-gray-500/25 to-gray-600/25 px-3 py-1 backdrop-blur-xl">
-              <div className="h-2 w-2 rounded-full bg-red-400" />
-              <span className="text-xs font-medium text-white">Pendente</span>
-            </div>
-          )}
-        </div>
-
-        <div className="duration-600 absolute inset-0 bg-gradient-to-br opacity-0 transition-all ease-in-out group-hover:opacity-100">
+        <div className="absolute inset-0 bg-gradient-to-br opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100">
           <div
             className={`absolute inset-0 bg-gradient-to-br ${
               isCompleted
-                ? "from-purple-400/12 to-purple-400/8 via-transparent"
+                ? "from-blue-400/12 via-transparent to-blue-400/8"
                 : isActive
-                  ? "from-violet-400/12 to-violet-400/8 via-transparent"
-                  : "from-purple-400/8 to-violet-400/8 via-transparent"
+                  ? "from-sky-400/12 via-transparent to-sky-400/8"
+                  : "from-blue-400/8 via-transparent to-sky-400/8"
             }`}
           />
         </div>
 
         <div className="relative z-10">
-          <div className="mb-6 flex items-start justify-between gap-4 pr-32">
-            <div className="flex-1 space-y-2">
-              <div className="text-sm font-bold tracking-wider text-purple-300">
-                {m.key}
-              </div>
-              <h3 className="flex items-center gap-2 pr-4 text-xl font-bold leading-tight tracking-tight text-white">
-                {m.title}
-                {isCompleted && <CheckCircleIcon />}
-              </h3>
+          <div className="mb-3 grid grid-cols-2 items-start gap-x-3 gap-y-2 sm:mb-6 sm:grid-cols-[1fr_auto] sm:gap-x-4 sm:gap-y-2">
+            {/* Linha 1 coluna 1: chave (E3) */}
+            <div className="min-w-0 text-sm font-bold tracking-wider text-blue-300">
+              {m.key}
             </div>
-          </div>
-
-          <div className="absolute right-4 top-12 z-10 sm:right-6 sm:top-8">
-            <div className="text-right">
-              <div className="bg-gradient-to-r from-white to-purple-100 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
+            {/* Linha 1 coluna 2: status (Pendente) */}
+            <div className="flex min-w-0 justify-end sm:justify-self-end">
+              {isCompleted ? (
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-blue-300/35 bg-gradient-to-br from-blue-400/25 to-sky-500/25 px-3 py-1 backdrop-blur-xl">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
+                  <span className="text-xs font-medium text-white">
+                    Concluída
+                  </span>
+                </div>
+              ) : isActive ? (
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-sky-300/35 bg-gradient-to-br from-sky-400/25 to-blue-500/25 px-3 py-1 backdrop-blur-xl">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
+                  <span className="text-xs font-medium text-white">
+                    Em Andamento
+                  </span>
+                </div>
+              ) : (
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-gray-400/35 bg-gradient-to-br from-gray-500/25 to-gray-600/25 px-3 py-1 backdrop-blur-xl">
+                  <div className="h-2 w-2 rounded-full bg-red-400" />
+                  <span className="text-xs font-medium text-white">
+                    Pendente
+                  </span>
+                </div>
+              )}
+            </div>
+            {/* Linha 2: título (mobile: largura total; sm+: coluna 1) */}
+            <h3 className="col-span-2 flex min-w-0 flex-wrap items-center gap-2 text-lg leading-tight font-bold tracking-tight break-words text-white sm:col-span-1 sm:text-xl">
+              {m.title}
+              {isCompleted && (
+                <CheckCircleIcon className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
+              )}
+            </h3>
+            {/* Linha 2 coluna 2 (mobile: full width, alinhado à direita): preço */}
+            <div className="col-span-2 flex min-w-0 justify-end text-right sm:col-span-1 sm:justify-self-end">
+              <div className="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-2xl font-bold text-transparent">
                 {brl.format(m.total)}
               </div>
             </div>
           </div>
 
-          <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-            <div className="rounded-xl border border-purple-400/25 bg-gradient-to-br from-purple-800/30 to-purple-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
-              <div className="mb-1 text-xs font-medium text-purple-200">
+          <div className="mb-4 grid grid-cols-3 gap-2 sm:mb-6 sm:gap-4">
+            <div className="rounded-xl border border-blue-400/25 bg-gradient-to-br from-blue-800/30 to-blue-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
+              <div className="mb-1 text-xs font-medium text-blue-200">
                 Recebido
               </div>
-              <div className="text-lg font-bold text-white">
+              <div className="text-sm font-bold text-white sm:text-lg">
                 {brl.format(m.paid)}
               </div>
             </div>
-            <div className="rounded-2xl border border-violet-400/25 bg-gradient-to-br from-violet-800/30 to-violet-700/20 p-4 backdrop-blur-2xl">
-              <div className="mb-1 text-xs font-medium text-violet-200">
+            <div className="rounded-xl border border-sky-400/25 bg-gradient-to-br from-sky-800/30 to-sky-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
+              <div className="mb-1 text-xs font-medium text-sky-200">
                 Restante
               </div>
-              <div className="text-lg font-bold text-white">
+              <div className="text-sm font-bold text-white sm:text-lg">
                 {brl.format(Math.max(0, m.total - m.paid))}
               </div>
             </div>
-            <div className="rounded-2xl border border-purple-400/25 bg-gradient-to-br from-purple-800/30 to-purple-800/30 p-4 backdrop-blur-xl">
-              <div className="mb-1 text-xs font-medium text-purple-200">
+            <div className="rounded-xl border border-blue-400/25 bg-gradient-to-br from-blue-800/30 to-blue-800/30 p-3 backdrop-blur-xl sm:rounded-2xl sm:p-4">
+              <div className="mb-1 text-xs font-medium text-blue-200">
                 Progresso
               </div>
-              <div className="text-lg font-bold text-white">{progress}%</div>
+              <div className="text-sm font-bold text-white sm:text-lg">
+                {progress}%
+              </div>
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {m.substeps.map((s, i) => {
               const isSubstepCompleted = isCompleted || s.completed === true
               return (
                 <div
                   key={i}
-                  className="group/substep duration-600 flex items-start gap-4 rounded-2xl border border-transparent bg-gradient-to-r from-purple-800/15 to-transparent p-4 backdrop-blur-xl transition-all ease-in-out hover:border-purple-400/25 hover:from-purple-700/25 hover:to-violet-800/15"
+                  className="group/substep flex items-start gap-3 rounded-xl border border-transparent bg-gradient-to-r from-blue-800/15 to-transparent p-3 backdrop-blur-xl transition-all duration-600 ease-in-out hover:border-blue-400/25 hover:from-blue-700/25 hover:to-sky-800/15 sm:gap-4 sm:rounded-2xl sm:p-4"
                 >
                   <div
                     className={`mt-2 h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-br shadow-lg ${
                       [
-                        "from-purple-400 to-purple-600",
-                        "from-violet-400 to-violet-600",
-                        "from-purple-300 to-purple-500",
-                        "from-violet-300 to-violet-500",
+                        "from-blue-400 to-blue-600",
+                        "from-sky-400 to-sky-600",
+                        "from-blue-300 to-blue-500",
+                        "from-sky-300 to-sky-500",
                       ][i % 4]
                     }`}
                   />
@@ -737,12 +720,12 @@ export default function OkGasDashboard() {
                     >
                       {s.name}
                     </div>
-                    <p className="text-xs leading-relaxed text-purple-200">
+                    <p className="text-xs leading-relaxed text-blue-200">
                       {s.justification}
                     </p>
                   </div>
                   <div
-                    className="whitespace-nowrap rounded-full border border-purple-400/25 bg-gradient-to-r from-purple-800/50 to-violet-800/50 px-3 py-1 text-sm font-bold text-white backdrop-blur-xl"
+                    className="rounded-full border border-blue-400/25 bg-gradient-to-r from-blue-800/50 to-sky-800/50 px-2 py-0.5 text-xs font-bold whitespace-nowrap text-white backdrop-blur-xl sm:px-3 sm:py-1 sm:text-sm"
                     style={
                       isSubstepCompleted
                         ? {
@@ -762,28 +745,28 @@ export default function OkGasDashboard() {
           </div>
         </div>
 
-        <div className="hover-scale-smooth duration-600 animate-slow-pulse absolute -right-6 -top-6 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-purple-300/30 to-violet-300/30 blur-2xl transition-all ease-in-out will-change-transform group-hover:scale-150" />
+        <div className="hover-scale-smooth animate-slow-pulse absolute -top-6 -right-6 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-blue-300/30 to-sky-300/30 blur-2xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
       </div>
     )
   }
 
   // Componente ExecutiveSummary com animação
-  const ExecutiveSummary = ({ percentPaid }: { percentPaid: number }) => {
+  const ExecutiveSummary = () => {
     const [ref, hasBeenVisible] = useIntersectionObserver({ threshold: 0.5 })
 
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element relative overflow-hidden rounded-3xl border border-purple-300/15 bg-gradient-to-br from-purple-900/30 via-violet-900/20 to-purple-800/15 p-8 shadow-2xl backdrop-blur-3xl ${
+        className={`scroll-reveal-element relative overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-5 shadow-2xl backdrop-blur-3xl sm:rounded-3xl sm:p-8 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 via-transparent to-violet-400/5" />
-        <div className="relative z-10 space-y-6">
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-sky-400/5" />
+        <div className="relative z-10 space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 gap-5 sm:gap-8 lg:grid-cols-2">
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-white">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-purple-300" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-blue-300" />
                 Status Atual
               </h3>
               <ul className="space-y-3 text-sm leading-relaxed">
@@ -810,7 +793,7 @@ export default function OkGasDashboard() {
             </div>
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-white">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-violet-300" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-sky-300" />
                 Vantagem Competitiva
               </h3>
               <ul className="space-y-3 text-sm leading-relaxed">
@@ -838,7 +821,9 @@ export default function OkGasDashboard() {
                 <li className="flex items-start gap-3">
                   <span className="text-lg">📱</span>
                   <span className="text-white">
-                    <span className="font-semibold">WhatsApp como interface:</span>{" "}
+                    <span className="font-semibold">
+                      WhatsApp como interface:
+                    </span>{" "}
                     equipe de campo registra dados por mensagem
                   </span>
                 </li>
@@ -874,24 +859,24 @@ export default function OkGasDashboard() {
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Luz superior direita - GRANDE */}
-        <div className="animate-very-slow-pulse absolute -right-40 -top-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-purple-400/50 to-violet-500/40 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute -top-40 -right-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/50 to-sky-500/40 blur-3xl" />
         {/* Luz inferior esquerda - GRANDE */}
-        <div className="animate-very-slow-pulse absolute -bottom-40 -left-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-violet-400/40 to-purple-500/50 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute -bottom-40 -left-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-sky-400/40 to-blue-500/50 blur-3xl" />
         {/* Luz central - MUITO GRANDE */}
-        <div className="animate-very-slow-pulse absolute left-1/2 top-1/2 z-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-br from-purple-300/40 to-violet-300/35 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute top-1/2 left-1/2 z-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-br from-blue-300/40 to-sky-300/35 blur-3xl" />
         {/* Luz superior esquerda - MÉDIA */}
-        <div className="animate-very-slow-pulse absolute left-20 top-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-violet-500/40 to-purple-400/35 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute top-20 left-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-sky-500/40 to-blue-400/35 blur-2xl" />
         {/* Luz inferior direita - MÉDIA */}
-        <div className="animate-very-slow-pulse absolute bottom-20 right-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-purple-400/35 to-violet-500/40 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute right-20 bottom-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-blue-400/35 to-sky-500/40 blur-2xl" />
 
         {/* Luzes adicionais para mais atmosfera */}
-        <div className="animate-very-slow-pulse absolute left-1/4 top-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-purple-400/30 to-violet-400/25 blur-2xl" />
-        <div className="animate-very-slow-pulse absolute bottom-1/4 right-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-violet-400/30 to-purple-400/25 blur-2xl" />
-        <div className="animate-very-slow-pulse absolute bottom-1/3 left-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-purple-300/35 to-violet-300/30 blur-xl" />
-        <div className="animate-very-slow-pulse absolute right-1/3 top-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-violet-300/35 to-purple-300/30 blur-xl" />
+        <div className="animate-very-slow-pulse absolute top-1/4 left-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-blue-400/30 to-sky-400/25 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute right-1/4 bottom-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-sky-400/30 to-blue-400/25 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute bottom-1/3 left-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-blue-300/35 to-sky-300/30 blur-xl" />
+        <div className="animate-very-slow-pulse absolute top-1/3 right-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-sky-300/35 to-blue-300/30 blur-xl" />
       </div>
 
-      <header className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-12">
+      <header className="relative z-10 mx-auto max-w-7xl px-4 pt-8 pb-6 sm:px-6 sm:pt-12 sm:pb-8">
         <HeaderContent
           modules={modules}
           totalPlanned={totalPlanned}
@@ -902,8 +887,8 @@ export default function OkGasDashboard() {
         />
       </header>
 
-      <main className="relative z-10 mx-auto max-w-7xl space-y-12 px-6 pb-20">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <main className="relative z-10 mx-auto max-w-7xl space-y-8 px-4 pb-12 sm:space-y-12 sm:px-6 sm:pb-20">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
           <Stat
             label="Total Planejado"
             value={brl.format(totalPlanned)}
@@ -926,8 +911,9 @@ export default function OkGasDashboard() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:gap-8 lg:grid-cols-2">
           <Section
+            id="progresso"
             title={
               <div className="flex items-center gap-2">
                 <BarChartIcon /> Progresso por Etapa
@@ -944,7 +930,7 @@ export default function OkGasDashboard() {
                   />
                   <YAxis hide />
                   <Tooltip
-                    formatter={(v: number) => brl.format(v)}
+                    formatter={v => brl.format(Number(v ?? 0))}
                     contentStyle={{
                       backgroundColor: "rgba(139, 92, 246, 0.05)",
                       border: "1px solid rgba(196, 181, 253, 0.15)",
@@ -977,8 +963,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#a78bfa" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
+                      <stop offset="0%" stopColor="#60a5fa" />
+                      <stop offset="100%" stopColor="#3b82f6" />
                     </linearGradient>
                     <linearGradient
                       id="remainingGradient"
@@ -987,8 +973,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#c4b5fd" />
-                      <stop offset="100%" stopColor="#a855f7" />
+                      <stop offset="0%" stopColor="#93c5fd" />
+                      <stop offset="100%" stopColor="#2563eb" />
                     </linearGradient>
                   </defs>
                 </BarChart>
@@ -1016,7 +1002,7 @@ export default function OkGasDashboard() {
                     tick={{ fontSize: 12, fill: "#e5e7eb" }}
                   />
                   <Tooltip
-                    formatter={(v: number) => brl.format(v)}
+                    formatter={v => brl.format(Number(v ?? 0))}
                     contentStyle={{
                       backgroundColor: "rgba(139, 92, 246, 0.05)",
                       border: "1px solid rgba(196, 181, 253, 0.15)",
@@ -1071,7 +1057,7 @@ export default function OkGasDashboard() {
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(v: number) => brl.format(v)}
+                    formatter={v => brl.format(Number(v ?? 0))}
                     contentStyle={{
                       backgroundColor: "rgba(139, 92, 246, 0.05)",
                       border: "1px solid rgba(196, 181, 253, 0.15)",
@@ -1107,8 +1093,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#a78bfa" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
+                      <stop offset="0%" stopColor="#60a5fa" />
+                      <stop offset="100%" stopColor="#3b82f6" />
                     </linearGradient>
                     <linearGradient
                       id="marketGradient1"
@@ -1117,8 +1103,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#c4b5fd" />
-                      <stop offset="100%" stopColor="#a855f7" />
+                      <stop offset="0%" stopColor="#93c5fd" />
+                      <stop offset="100%" stopColor="#2563eb" />
                     </linearGradient>
                     <linearGradient
                       id="marketGradient2"
@@ -1127,8 +1113,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#a855f7" />
-                      <stop offset="100%" stopColor="#9333ea" />
+                      <stop offset="0%" stopColor="#2563eb" />
+                      <stop offset="100%" stopColor="#1d4ed8" />
                     </linearGradient>
                     <linearGradient
                       id="marketGradient3"
@@ -1137,8 +1123,8 @@ export default function OkGasDashboard() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor="#9333ea" />
-                      <stop offset="100%" stopColor="#7c3aed" />
+                      <stop offset="0%" stopColor="#1d4ed8" />
+                      <stop offset="100%" stopColor="#1e40af" />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
@@ -1155,7 +1141,7 @@ export default function OkGasDashboard() {
                     tick={{ fontSize: 12, fill: "#e5e7eb" }}
                   />
                   <Tooltip
-                    formatter={(v: number) => brl.format(v)}
+                    formatter={v => brl.format(Number(v ?? 0))}
                     contentStyle={{
                       backgroundColor: "rgba(139, 92, 246, 0.05)",
                       border: "1px solid rgba(196, 181, 253, 0.15)",
@@ -1181,40 +1167,41 @@ export default function OkGasDashboard() {
           </Section>
         </div>
 
-        {/* Título COM ANIMAÇÃO CSS PURA - SEM JS */}
-        <div className="roadmap-title-css-animation mb-8">
-          <h2 className="bg-gradient-to-r from-white via-purple-100 to-violet-200 bg-clip-text text-2xl font-bold tracking-tight text-transparent">
-            <div className="flex items-center gap-2">
-              <MapIcon /> Roadmap Detalhado — Etapas & Investimento (
-              {modules?.length || 0} etapas)
-            </div>
-          </h2>
-        </div>
+        {/* Roadmap section — wrapper keeps title + cards as one unit for consistent space-y-12 */}
+        <div id="etapas" className="scroll-mt-20 space-y-4 sm:space-y-6">
+          <div className="roadmap-title-css-animation">
+            <h2 className="bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
+              <div className="flex items-center gap-2">
+                <MapIcon /> Roadmap Detalhado — Etapas & Investimento (
+                {modules?.length || 0} etapas)
+              </div>
+            </h2>
+          </div>
 
-        {/* Grid dos cards SEPARADO do título */}
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 xl:grid-cols-2">
-          {modules && modules.length > 0 ? (
-            modules.map(m => {
-              const progress = Math.round((m.paid / m.total) * 100)
-              const isCompleted = m.paid >= m.total
-              const isActive = m.paid > 0 && m.paid < m.total
+          <div className="grid grid-cols-1 gap-5 sm:gap-8 xl:grid-cols-2">
+            {modules && modules.length > 0 ? (
+              modules.map(m => {
+                const progress = Math.round((m.paid / m.total) * 100)
+                const isCompleted = m.paid >= m.total
+                const isActive = m.paid > 0 && m.paid < m.total
 
-              return (
-                <ModuleCard
-                  key={m.id}
-                  module={m}
-                  progress={progress}
-                  isCompleted={isCompleted}
-                  isActive={isActive}
-                  brl={brl}
-                />
-              )
-            })
-          ) : (
-            <div className="col-span-2 p-8 text-center text-white">
-              <p>⚠️ Nenhum módulo encontrado. Verificando dados...</p>
-            </div>
-          )}
+                return (
+                  <ModuleCard
+                    key={m.id}
+                    module={m}
+                    progress={progress}
+                    isCompleted={isCompleted}
+                    isActive={isActive}
+                    brl={brl}
+                  />
+                )
+              })
+            ) : (
+              <div className="col-span-2 p-8 text-center text-white">
+                <p>⚠️ Nenhum módulo encontrado. Verificando dados...</p>
+              </div>
+            )}
+          </div>
         </div>
 
         <Section
@@ -1224,7 +1211,7 @@ export default function OkGasDashboard() {
             </div>
           }
         >
-          <ExecutiveSummary percentPaid={percentPaid} />
+          <ExecutiveSummary />
         </Section>
       </main>
     </div>

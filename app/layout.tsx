@@ -17,10 +17,23 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://okgas.vercel.app"),
   title: "OK Gás Engenharia — Dashboard Executivo de Progresso",
   description:
     "Sistema SaaS — Gestão de Frotas, IA no WhatsApp e Controle de Processos para OK Gás Engenharia",
   generator: "Next.js",
+  openGraph: {
+    title: "OK Gás Engenharia — Dashboard Executivo",
+    description: "Gestão de Frotas, IA no WhatsApp e Controle de Processos",
+    type: "website",
+    locale: "pt_BR",
+    siteName: "OK Gás Engenharia",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OK Gás Engenharia — Dashboard Executivo",
+    description: "Gestão de Frotas, IA no WhatsApp e Controle de Processos",
+  },
 }
 
 export default function RootLayout({
@@ -34,7 +47,7 @@ export default function RootLayout({
       className={`${geist.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased">
+      <body className="page-loading font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

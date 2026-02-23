@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /** Next 16: evita erro quando há webpack custom e build usa Turbopack por padrão */
+  turbopack: {},
   webpack: (config, { isServer }) => {
     // Configuração para pacotes ESM
     config.externals = config.externals || []

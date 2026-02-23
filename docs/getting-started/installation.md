@@ -7,9 +7,9 @@ desenvolvimento.
 
 Antes de começar, certifique-se de ter instalado:
 
-- **Node.js** 18.17 ou superior
-- **pnpm** 8.0 ou superior (recomendado) ou **npm** 9.0+
-- **Git** para clonar o repositório
+* **Node.js** 18.17 ou superior
+* **pnpm** 8.0 ou superior (recomendado) ou **npm** 9.0+
+* **Git** para clonar o repositório
 
 ### Verificando as versões
 
@@ -58,15 +58,15 @@ Edite o arquivo `.env.local` com suas configurações:
 
 # Configurações do Next.js
 
-NEXT_PUBLIC_APP_NAME="Dashboard Executivo de Progresso" NEXT_PUBLIC_APP_VERSION="0.1.0"
+NEXT\_PUBLIC\_APP\_NAME="Dashboard Executivo de Progresso" NEXT\_PUBLIC\_APP\_VERSION="0.1.0"
 
 # Configurações de API (se necessário)
 
-NEXT_PUBLIC_API_URL="http://localhost:3000/api"
+NEXT\_PUBLIC\_API\_URL="http://localhost:3000/api"
 
 # Configurações de analytics (opcional)
 
-NEXT_PUBLIC_GA_ID="" \`\`\`
+NEXT\_PUBLIC\_GA\_ID="" \`\`\`
 
 ### 4. Executar o projeto
 
@@ -126,7 +126,7 @@ pnpm store prune
 
 # Reinstalar dependências
 
-rm -rf node_modules pnpm-lock.yaml pnpm install \`\`\`
+rm -rf node\_modules pnpm-lock.yaml pnpm install \`\`\`
 
 ### Erro de build
 
@@ -171,11 +171,11 @@ Após a instalação bem-sucedida:
 
 Se encontrar problemas durante a instalação:
 
-- Verifique os [Issues](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
+* Verifique os [Issues](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
   existentes
-- Abra um novo [Issue](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues/new)
-- Entre em contato: contato@okgas.eng.br
+* Abra um novo [Issue](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues/new)
+* Entre em contato: contato@okgas.eng.br
 
----
+***
 
 **Próximo**: [Primeiros Passos](quick-start.md) →

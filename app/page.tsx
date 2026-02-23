@@ -1,5 +1,10 @@
 import OkGasDashboard from "@/components/okgas-dashboard"
+import IntroLayout from "@/components/intro-layout"
 
 export default function Home() {
-  return <OkGasDashboard />
+  return (
+    <IntroLayout>
+      <OkGasDashboard />
+    </IntroLayout>
+  )
 }
