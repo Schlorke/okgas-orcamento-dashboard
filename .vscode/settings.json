@@ -84,7 +84,7 @@
     "**/dist/**",
     "**/build/**"
   ],
-  "cSpell.words": [
+  "css.lint.unknownAtRules":"ignore","cSpell.words": [
     "acompanhamento",
     "acumulado",
     "ABRINDO",

@@ -392,10 +392,10 @@ const PDFExport: React.FC<PDFExportProps> = props => {
   if (!isClient) {
     return (
       <button
-        className="hover-scale-smooth group relative overflow-hidden rounded-2xl border border-blue-300/25 bg-gradient-to-r from-blue-900/40 to-sky-900/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-xl hover:shadow-blue-400/20"
+        className="hover-scale-smooth group relative overflow-hidden rounded-2xl border border-blue-300/25 bg-linear-to-r from-blue-900/40 to-sky-900/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-xl hover:shadow-blue-400/20"
         disabled
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/15 to-sky-400/15 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-linear-to-r from-blue-400/15 to-sky-400/15 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
         <span className="relative z-10 flex items-center gap-2">
           <svg
             className="h-4 w-4 animate-spin text-white"
@@ -428,9 +428,9 @@ const PDFExport: React.FC<PDFExportProps> = props => {
     <button
       onClick={handleExportPDF}
       disabled={isLoading}
-      className="hover-scale-smooth group relative overflow-hidden rounded-2xl border border-blue-300/25 bg-gradient-to-r from-blue-900/40 to-sky-900/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-xl hover:shadow-blue-400/20"
+      className="hover-scale-smooth group relative overflow-hidden rounded-2xl border border-blue-300/25 bg-linear-to-r from-blue-900/40 to-sky-900/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-xl hover:shadow-blue-400/20"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/15 to-sky-400/15 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-linear-to-r from-blue-400/15 to-sky-400/15 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
       <span className="relative z-10 flex items-center gap-2">
         {isLoading ? (
           <>

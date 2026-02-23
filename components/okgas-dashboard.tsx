@@ -458,13 +458,13 @@ export default function OkGasDashboard() {
         }`}
       >
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-gradient-to-r from-blue-400/15 to-sky-400/15 px-4 py-2 backdrop-blur-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-linear-to-r from-blue-400/15 to-sky-400/15 px-4 py-2 backdrop-blur-2xl">
             <div className="h-2 w-2 animate-pulse rounded-full bg-blue-300" />
             <span className="text-sm font-medium text-blue-200">
               Proposta Comercial
             </span>
           </div>
-          <h1 className="bg-gradient-to-r from-white via-blue-200 to-sky-300 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
+          <h1 className="bg-linear-to-r from-white via-blue-200 to-sky-300 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
             OK Gás Engenharia
           </h1>
           <p className="text-lg font-medium text-gray-300">
@@ -506,23 +506,23 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:shadow-blue-400/20 sm:rounded-3xl sm:p-6 ${
+        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-linear-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:shadow-blue-400/20 sm:rounded-3xl sm:p-6 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/8 via-transparent to-sky-400/8 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-400/8 via-transparent to-sky-400/8 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100" />
         <div className="relative z-10">
           <div className="mb-1 text-xs font-medium text-blue-200 sm:mb-2 sm:text-sm">
             {label}
           </div>
-          <div className="mb-1 bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
+          <div className="mb-1 bg-linear-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
             {value}
           </div>
           {hint && (
             <div className="text-xs text-blue-300 opacity-80">{hint}</div>
           )}
         </div>
-        <div className="hover-scale-smooth animate-slow-pulse absolute -top-4 -right-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-300/30 to-sky-300/30 blur-xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
+        <div className="hover-scale-smooth animate-slow-pulse absolute -top-4 -right-4 h-24 w-24 rounded-full bg-linear-to-br from-blue-300/30 to-sky-300/30 blur-xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
       </div>
     )
   }
@@ -546,7 +546,7 @@ export default function OkGasDashboard() {
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <h2 className="bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
+        <h2 className="bg-linear-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
           {title}
         </h2>
         {children}
@@ -566,11 +566,11 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl will-change-shadow relative h-72 overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-3 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-blue-400/20 sm:h-80 sm:rounded-3xl sm:p-6 ${className} ${
+        className={`scroll-reveal-element hover:shadow-3xl will-change-shadow relative h-72 overflow-hidden rounded-2xl border border-blue-300/15 bg-linear-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-3 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out hover:shadow-blue-400/20 sm:h-80 sm:rounded-3xl sm:p-6 ${className} ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-sky-400/5" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-400/5 via-transparent to-sky-400/5" />
         <div className="relative z-10 h-full">{children}</div>
       </div>
     )
@@ -595,13 +595,13 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:scale-[1.02] sm:rounded-3xl sm:p-8 ${
+        className={`scroll-reveal-element hover:shadow-3xl hover-scale-smooth group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-300/15 bg-linear-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-4 shadow-2xl backdrop-blur-3xl transition-all duration-600 ease-in-out will-change-transform hover:scale-[1.02] sm:rounded-3xl sm:p-8 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100">
+        <div className="absolute inset-0 bg-linear-to-br opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100">
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${
+            className={`absolute inset-0 bg-linear-to-br ${
               isCompleted
                 ? "from-blue-400/12 via-transparent to-blue-400/8"
                 : isActive
@@ -620,21 +620,21 @@ export default function OkGasDashboard() {
             {/* Linha 1 coluna 2: status (Pendente) */}
             <div className="flex min-w-0 justify-end sm:justify-self-end">
               {isCompleted ? (
-                <div className="flex shrink-0 items-center gap-2 rounded-full border border-blue-300/35 bg-gradient-to-br from-blue-400/25 to-sky-500/25 px-3 py-1 backdrop-blur-xl">
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-blue-300/35 bg-linear-to-br from-blue-400/25 to-sky-500/25 px-3 py-1 backdrop-blur-xl">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
                   <span className="text-xs font-medium text-white">
                     Concluída
                   </span>
                 </div>
               ) : isActive ? (
-                <div className="flex shrink-0 items-center gap-2 rounded-full border border-sky-300/35 bg-gradient-to-br from-sky-400/25 to-blue-500/25 px-3 py-1 backdrop-blur-xl">
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-sky-300/35 bg-linear-to-br from-sky-400/25 to-blue-500/25 px-3 py-1 backdrop-blur-xl">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
                   <span className="text-xs font-medium text-white">
                     Em Andamento
                   </span>
                 </div>
               ) : (
-                <div className="flex shrink-0 items-center gap-2 rounded-full border border-gray-400/35 bg-gradient-to-br from-gray-500/25 to-gray-600/25 px-3 py-1 backdrop-blur-xl">
+                <div className="flex shrink-0 items-center gap-2 rounded-full border border-gray-400/35 bg-linear-to-br from-gray-500/25 to-gray-600/25 px-3 py-1 backdrop-blur-xl">
                   <div className="h-2 w-2 rounded-full bg-red-400" />
                   <span className="text-xs font-medium text-white">
                     Pendente
@@ -643,7 +643,7 @@ export default function OkGasDashboard() {
               )}
             </div>
             {/* Linha 2: título (mobile: largura total; sm+: coluna 1) */}
-            <h3 className="col-span-2 flex min-w-0 flex-wrap items-center gap-2 text-lg leading-tight font-bold tracking-tight break-words text-white sm:col-span-1 sm:text-xl">
+            <h3 className="col-span-2 flex min-w-0 flex-wrap items-center gap-2 text-lg leading-tight font-bold tracking-tight wrap-break-word text-white sm:col-span-1 sm:text-xl">
               {m.title}
               {isCompleted && (
                 <CheckCircleIcon className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
@@ -651,14 +651,14 @@ export default function OkGasDashboard() {
             </h3>
             {/* Linha 2 coluna 2 (mobile: full width, alinhado à direita): preço */}
             <div className="col-span-2 flex min-w-0 justify-end text-right sm:col-span-1 sm:justify-self-end">
-              <div className="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-2xl font-bold text-transparent">
+              <div className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-2xl font-bold text-transparent">
                 {brl.format(m.total)}
               </div>
             </div>
           </div>
 
           <div className="mb-4 grid grid-cols-3 gap-2 sm:mb-6 sm:gap-4">
-            <div className="rounded-xl border border-blue-400/25 bg-gradient-to-br from-blue-800/30 to-blue-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
+            <div className="rounded-xl border border-blue-400/25 bg-linear-to-br from-blue-800/30 to-blue-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
               <div className="mb-1 text-xs font-medium text-blue-200">
                 Recebido
               </div>
@@ -666,7 +666,7 @@ export default function OkGasDashboard() {
                 {brl.format(m.paid)}
               </div>
             </div>
-            <div className="rounded-xl border border-sky-400/25 bg-gradient-to-br from-sky-800/30 to-sky-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
+            <div className="rounded-xl border border-sky-400/25 bg-linear-to-br from-sky-800/30 to-sky-700/20 p-3 backdrop-blur-2xl sm:rounded-2xl sm:p-4">
               <div className="mb-1 text-xs font-medium text-sky-200">
                 Restante
               </div>
@@ -674,7 +674,7 @@ export default function OkGasDashboard() {
                 {brl.format(Math.max(0, m.total - m.paid))}
               </div>
             </div>
-            <div className="rounded-xl border border-blue-400/25 bg-gradient-to-br from-blue-800/30 to-blue-800/30 p-3 backdrop-blur-xl sm:rounded-2xl sm:p-4">
+            <div className="rounded-xl border border-blue-400/25 bg-linear-to-br from-blue-800/30 to-blue-800/30 p-3 backdrop-blur-xl sm:rounded-2xl sm:p-4">
               <div className="mb-1 text-xs font-medium text-blue-200">
                 Progresso
               </div>
@@ -690,10 +690,10 @@ export default function OkGasDashboard() {
               return (
                 <div
                   key={i}
-                  className="group/substep flex items-start gap-3 rounded-xl border border-transparent bg-gradient-to-r from-blue-800/15 to-transparent p-3 backdrop-blur-xl transition-all duration-600 ease-in-out hover:border-blue-400/25 hover:from-blue-700/25 hover:to-sky-800/15 sm:gap-4 sm:rounded-2xl sm:p-4"
+                  className="group/substep flex items-start gap-3 rounded-xl border border-transparent bg-linear-to-r from-blue-800/15 to-transparent p-3 backdrop-blur-xl transition-all duration-600 ease-in-out hover:border-blue-400/25 hover:from-blue-700/25 hover:to-sky-800/15 sm:gap-4 sm:rounded-2xl sm:p-4"
                 >
                   <div
-                    className={`mt-2 h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-br shadow-lg ${
+                    className={`mt-2 h-3 w-3 shrink-0 rounded-full bg-linear-to-br shadow-lg ${
                       [
                         "from-blue-400 to-blue-600",
                         "from-sky-400 to-sky-600",
@@ -725,7 +725,7 @@ export default function OkGasDashboard() {
                     </p>
                   </div>
                   <div
-                    className="rounded-full border border-blue-400/25 bg-gradient-to-r from-blue-800/50 to-sky-800/50 px-2 py-0.5 text-xs font-bold whitespace-nowrap text-white backdrop-blur-xl sm:px-3 sm:py-1 sm:text-sm"
+                    className="rounded-full border border-blue-400/25 bg-linear-to-r from-blue-800/50 to-sky-800/50 px-2 py-0.5 text-xs font-bold whitespace-nowrap text-white backdrop-blur-xl sm:px-3 sm:py-1 sm:text-sm"
                     style={
                       isSubstepCompleted
                         ? {
@@ -745,7 +745,7 @@ export default function OkGasDashboard() {
           </div>
         </div>
 
-        <div className="hover-scale-smooth animate-slow-pulse absolute -top-6 -right-6 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-blue-300/30 to-sky-300/30 blur-2xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
+        <div className="hover-scale-smooth animate-slow-pulse absolute -top-6 -right-6 z-0 h-32 w-32 rounded-full bg-linear-to-br from-blue-300/30 to-sky-300/30 blur-2xl transition-all duration-600 ease-in-out will-change-transform group-hover:scale-150" />
       </div>
     )
   }
@@ -757,11 +757,11 @@ export default function OkGasDashboard() {
     return (
       <div
         ref={ref}
-        className={`scroll-reveal-element relative overflow-hidden rounded-2xl border border-blue-300/15 bg-gradient-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-5 shadow-2xl backdrop-blur-3xl sm:rounded-3xl sm:p-8 ${
+        className={`scroll-reveal-element relative overflow-hidden rounded-2xl border border-blue-300/15 bg-linear-to-br from-blue-900/30 via-sky-900/20 to-blue-800/15 p-5 shadow-2xl backdrop-blur-3xl sm:rounded-3xl sm:p-8 ${
           hasBeenVisible ? "lens-focus-visible" : "lens-focus-initial"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-sky-400/5" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-400/5 via-transparent to-sky-400/5" />
         <div className="relative z-10 space-y-4 sm:space-y-6">
           <div className="grid grid-cols-1 gap-5 sm:gap-8 lg:grid-cols-2">
             <div className="space-y-4">
@@ -859,21 +859,21 @@ export default function OkGasDashboard() {
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Luz superior direita - GRANDE */}
-        <div className="animate-very-slow-pulse absolute -top-40 -right-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/50 to-sky-500/40 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute -top-40 -right-40 z-0 h-80 w-80 rounded-full bg-linear-to-br from-blue-400/50 to-sky-500/40 blur-3xl" />
         {/* Luz inferior esquerda - GRANDE */}
-        <div className="animate-very-slow-pulse absolute -bottom-40 -left-40 z-0 h-80 w-80 rounded-full bg-gradient-to-br from-sky-400/40 to-blue-500/50 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute -bottom-40 -left-40 z-0 h-80 w-80 rounded-full bg-linear-to-br from-sky-400/40 to-blue-500/50 blur-3xl" />
         {/* Luz central - MUITO GRANDE */}
-        <div className="animate-very-slow-pulse absolute top-1/2 left-1/2 z-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-br from-blue-300/40 to-sky-300/35 blur-3xl" />
+        <div className="animate-very-slow-pulse absolute top-1/2 left-1/2 z-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-linear-to-br from-blue-300/40 to-sky-300/35 blur-3xl" />
         {/* Luz superior esquerda - MÉDIA */}
-        <div className="animate-very-slow-pulse absolute top-20 left-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-sky-500/40 to-blue-400/35 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute top-20 left-20 z-0 h-60 w-60 rounded-full bg-linear-to-br from-sky-500/40 to-blue-400/35 blur-2xl" />
         {/* Luz inferior direita - MÉDIA */}
-        <div className="animate-very-slow-pulse absolute right-20 bottom-20 z-0 h-60 w-60 rounded-full bg-gradient-to-br from-blue-400/35 to-sky-500/40 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute right-20 bottom-20 z-0 h-60 w-60 rounded-full bg-linear-to-br from-blue-400/35 to-sky-500/40 blur-2xl" />
 
         {/* Luzes adicionais para mais atmosfera */}
-        <div className="animate-very-slow-pulse absolute top-1/4 left-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-blue-400/30 to-sky-400/25 blur-2xl" />
-        <div className="animate-very-slow-pulse absolute right-1/4 bottom-1/4 z-0 h-40 w-40 rounded-full bg-gradient-to-br from-sky-400/30 to-blue-400/25 blur-2xl" />
-        <div className="animate-very-slow-pulse absolute bottom-1/3 left-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-blue-300/35 to-sky-300/30 blur-xl" />
-        <div className="animate-very-slow-pulse absolute top-1/3 right-1/3 z-0 h-32 w-32 rounded-full bg-gradient-to-br from-sky-300/35 to-blue-300/30 blur-xl" />
+        <div className="animate-very-slow-pulse absolute top-1/4 left-1/4 z-0 h-40 w-40 rounded-full bg-linear-to-br from-blue-400/30 to-sky-400/25 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute right-1/4 bottom-1/4 z-0 h-40 w-40 rounded-full bg-linear-to-br from-sky-400/30 to-blue-400/25 blur-2xl" />
+        <div className="animate-very-slow-pulse absolute bottom-1/3 left-1/3 z-0 h-32 w-32 rounded-full bg-linear-to-br from-blue-300/35 to-sky-300/30 blur-xl" />
+        <div className="animate-very-slow-pulse absolute top-1/3 right-1/3 z-0 h-32 w-32 rounded-full bg-linear-to-br from-sky-300/35 to-blue-300/30 blur-xl" />
       </div>
 
       <header className="relative z-10 mx-auto max-w-7xl px-4 pt-8 pb-6 sm:px-6 sm:pt-12 sm:pb-8">
@@ -1108,7 +1108,7 @@ export default function OkGasDashboard() {
         {/* Roadmap section — wrapper keeps title + cards as one unit for consistent space-y-12 */}
         <div id="etapas" className="scroll-mt-20 space-y-4 sm:space-y-6">
           <div className="roadmap-title-css-animation">
-            <h2 className="bg-gradient-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
+            <h2 className="bg-linear-to-r from-white via-blue-100 to-sky-200 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
               <div className="flex items-center gap-2">
                 <MapIcon /> Roadmap Detalhado — Etapas & Investimento (
                 {modules?.length || 0} etapas)
