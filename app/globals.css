@@ -747,12 +747,12 @@ header.intro-header nav ul li a:hover {
     min-height: var(--intro-header-expanded-height);
     width: 100%;
     background-color: rgba(0, 0, 0, 0.94);
-    padding: 96px 40px 120px;
+    padding: 96px 80px 120px;
     opacity: 1;
     visibility: hidden;
     justify-content: flex-start;
     gap: 1.75rem;
-    align-items: flex-start;
+    align-items: flex-end;
     overflow-y: auto;
     transition:
       transform 0.3s ease,
@@ -773,5 +773,12 @@ header.intro-header nav ul li a:hover {
   header.intro-header nav ul li {
     padding: 25px 0;
     white-space: nowrap;
+    min-width: 110px;
+    text-align: left;
+  }
+
+  header.intro-header nav ul li a {
+    display: block;
+    text-align: left;
   }
 }
