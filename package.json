@@ -1,5 +1,6 @@
 {
-  "name": "dashboard-executivo-de-progresso",
+  "name": "okgas-orcamento-dashboard",
+  "description": "Dashboard Executivo de Progresso — Sistema SaaS para OK Gás Engenharia",
   "version": "0.1.0",
   "private": true,
   "type": "module",

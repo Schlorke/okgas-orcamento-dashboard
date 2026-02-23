@@ -18,7 +18,7 @@ vulnerabilidade de segurança, por favor siga as diretrizes abaixo.
 
 **NÃO** crie uma issue pública para vulnerabilidades de segurança.
 
-Em vez disso, envie um email para: **security@gb-locacoes.com**
+Em vez disso, envie um email para: **contato@okgas.eng.br**
 
 ### 📝 Informações a Incluir
 
@@ -174,7 +174,7 @@ const ContentSecurityPolicy = `
 
 ### 📞 Contatos de Emergência
 
-- **Email de Segurança**: security@gb-locacoes.com
+- **Email de Segurança**: contato@okgas.eng.br
 - **Telefone de Emergência**: +55 (11) 9999-9999
 - **Slack**: #security-alerts
 
@@ -198,4 +198,4 @@ const ContentSecurityPolicy = `
 
 **A segurança é responsabilidade de todos!** 🔒
 
-Para mais informações, entre em contato: **security@gb-locacoes.com**
+Para mais informações, entre em contato: **contato@okgas.eng.br**

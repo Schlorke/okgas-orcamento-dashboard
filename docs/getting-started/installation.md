@@ -174,7 +174,7 @@ Se encontrar problemas durante a instalação:
 - Verifique os [Issues](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
   existentes
 - Abra um novo [Issue](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues/new)
-- Entre em contato: suporte@gb-locacoes.com
+- Entre em contato: contato@okgas.eng.br
 
 ---
 

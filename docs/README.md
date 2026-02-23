@@ -1,6 +1,6 @@
 # 📚 Documentação Completa - Dashboard Executivo de Progresso
 
-Bem-vindo à documentação oficial do **Dashboard Executivo de Progresso** da GB Locações. Este
+Bem-vindo à documentação oficial do **Dashboard Executivo de Progresso** da OK Gás Engenharia. Este
 projeto oferece uma solução completa para visualização e acompanhamento de progresso de projetos
 executivos.
 
@@ -90,7 +90,7 @@ Static Data │ │ │ │ + State Management │ │ │ │ + Data Transforma
 
 ## 🧩 Componentes Principais
 
-### Dashboard Principal (`components/gb-locacoes-complete.tsx`)
+### Dashboard Principal (`components/okgas-dashboard.tsx`)
 
 - **Renderização responsiva** do dashboard principal
 - **Gerenciamento de estado** dos projetos
@@ -213,7 +213,7 @@ CartesianGrid, Tooltip, Legend, ResponsiveContainer, } from "recharts" \`\`\`
 
 - **Dashboard Executivo**: Interface principal para gestão de projetos
 - **Sistema de Gráficos**: Visualizações com Recharts
-- **Roadmap Detalhado**: 8 etapas estruturadas do projeto
+- **Roadmap Detalhado**: 5 etapas estruturadas do projeto
 - **Exportação PDF**: Geração de relatórios executivos
 
 ## 🤝 Contribuindo
@@ -249,7 +249,7 @@ CartesianGrid, Tooltip, Legend, ResponsiveContainer, } from "recharts" \`\`\`
   [GitHub Issues](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
 - **Discussions**:
   [GitHub Discussions](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
-- **Email**: suporte@gb-locacoes.com
+- **Email**: contato@okgas.eng.br
 
 ## 📄 Licença
 
@@ -258,7 +258,7 @@ detalhes.
 
 ## 🌟 Reconhecimentos
 
-- **Equipe GB Locações** - Visão e requisitos do projeto
+- **OK Gás Engenharia** - Visão e requisitos do projeto
 - **Next.js Team** - Framework React de ponta
 - **Vercel** - Plataforma de deploy e hosting
 - **Tailwind CSS** - Framework CSS utility-first
@@ -270,6 +270,6 @@ detalhes.
 
 ## ⭐ Se este projeto foi útil, considere dar uma estrela! ⭐
 
-_Construído com ❤️ pela equipe GB Locações_
+_Construído por Harry | Desenvolvedor Full-Stack_
 
 </div>

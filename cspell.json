@@ -18,9 +18,9 @@
   ],
   "dictionaryDefinitions": [
     {
-      "name": "gb-locacoes-terms",
-      "path": "./cspell-gb-locacoes.txt",
-      "description": "Termos específicos do projeto GB Locações"
+      "name": "okgas-terms",
+      "path": "./cspell-okgas.txt",
+      "description": "Termos específicos do projeto OK Gás Engenharia"
     }
   ],
   "ignorePaths": [
@@ -82,8 +82,8 @@
     "instalação",
     "intuitiva",
     "jspdf",
-    "locacoes",
-    "Locacoes",
+    "okgas",
+    "Okgas",
     "lucide",
     "luzes",
     "mais",

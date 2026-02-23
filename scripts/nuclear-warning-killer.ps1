@@ -26,7 +26,7 @@ $changelog = $changelog -replace "(\n- .*\n)(\n- )", "`$1`n`$2"
 $changelog = $changelog -replace "^\d+\. ", "1. "
 
 # Corrigir marcadores de ênfase
-$changelog = $changelog -replace "_Construído com ❤️ pela equipe GB Locações_", "*Construído com ❤️ pela equipe GB Locações*"
+$changelog = $changelog -replace "_Construído com ❤️ pela equipe OK Gás Engenharia_", "*Construído com ❤️ pela equipe OK Gás Engenharia*"
 
 # Salvar arquivo corrigido
 $changelog | Set-Content "CHANGELOG.md" -Encoding UTF8
@@ -39,7 +39,7 @@ $readme = Get-Content "README.md" -Raw
 $readme = $readme -replace "_Uma solução enterprise-grade para acompanhamento de progresso, métricas e roadmap de projetos de TI_", "*Uma solução enterprise-grade para acompanhamento de progresso, métricas e roadmap de projetos de TI*"
 
 # Corrigir linhas muito longas
-$readme = $readme -replace "O \*\*GB Locações - Dashboard Executivo de Progresso\*\* é uma aplicação web moderna e sofisticada desenvolvida para gestores de projetos de TI acompanharem o progresso de desenvolvimento de software de forma visual, intuitiva e executiva\.", "O **GB Locações - Dashboard Executivo de Progresso** é uma aplicação web moderna e sofisticada desenvolvida para gestores de projetos de TI acompanharem o progresso de desenvolvimento de software de forma visual, intuitiva e executiva."
+$readme = $readme -replace "O \*\*OK Gás Engenharia - Dashboard Executivo de Progresso\*\* é uma aplicação web moderna e sofisticada desenvolvida para gestores de projetos de TI acompanharem o progresso de desenvolvimento de software de forma visual, intuitiva e executiva\.", "O **OK Gás Engenharia - Dashboard Executivo de Progresso** é uma aplicação web moderna e sofisticada desenvolvida para gestores de projetos de TI acompanharem o progresso de desenvolvimento de software de forma visual, intuitiva e executiva."
 
 # Corrigir listas numeradas
 $readme = $readme -replace "^\d+\. ", "1. "
@@ -48,7 +48,7 @@ $readme = $readme -replace "^\d+\. ", "1. "
 $readme = $readme -replace "(\n\d+\. .*\n)(\n\d+\. )", "`$1`n`$2"
 
 # Corrigir marcadores de ênfase
-$readme = $readme -replace "_Construído com ❤️ pela equipe GB Locações_", "*Construído com ❤️ pela equipe GB Locações*"
+$readme = $readme -replace "_Construído com ❤️ pela equipe OK Gás Engenharia_", "*Construído com ❤️ pela equipe OK Gás Engenharia*"
 
 # Salvar arquivo corrigido
 $readme | Set-Content "README.md" -Encoding UTF8
@@ -67,7 +67,7 @@ $techdocs = $techdocs -replace "^\d+\. ", "1. "
 $techdocs = $techdocs -replace "(\n\d+\. .*\n)(\n\d+\. )", "`$1`n`$2"
 
 # Corrigir marcadores de ênfase
-$techdocs = $techdocs -replace "_Construído com ❤️ pela equipe GB Locações_", "*Construído com ❤️ pela equipe GB Locações*"
+$techdocs = $techdocs -replace "_Construído com ❤️ pela equipe OK Gás Engenharia_", "*Construído com ❤️ pela equipe OK Gás Engenharia*"
 
 # Salvar arquivo corrigido
 $techdocs | Set-Content "TECHNICAL-DOCS.md" -Encoding UTF8

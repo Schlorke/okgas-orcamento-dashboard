@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Dashboard Executivo de Progresso",
-  description: "Dashboard para acompanhamento de progresso e métricas",
+  title: "OK Gás Engenharia — Dashboard Executivo de Progresso",
+  description:
+    "Sistema SaaS — Gestão de Frotas, IA no WhatsApp e Controle de Processos para OK Gás Engenharia",
   generator: "Next.js",
 }
 

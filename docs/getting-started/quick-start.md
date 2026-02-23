@@ -159,7 +159,7 @@ Agora que você conhece o básico:
 - **Documentação**: Explore as outras seções
 - **Issues**:
   [GitHub Issues](https://github.com/seu-usuario/dashboard-executivo-de-progresso/issues)
-- **Suporte**: suporte@gb-locacoes.com
+- **Suporte**: contato@okgas.eng.br
 - **Comunidade**:
   [GitHub Discussions](https://github.com/seu-usuario/dashboard-executivo-de-progresso/discussions)
 

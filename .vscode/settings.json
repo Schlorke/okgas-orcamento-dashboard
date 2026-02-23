@@ -45,7 +45,7 @@
     "css",
     "companies",
     "softwareTerms",
-    "gb-locacoes-terms"
+    "okgas-terms"
   ],
   "markdownlint.config": {
     "MD001": false,
@@ -144,8 +144,8 @@
     "INTRODUÇÃO",
     "jspdf",
     "LENTA",
-    "locacoes",
-    "Locacoes",
+    "okgas",
+    "Okgas",
     "luzes",
     "mais",
     "mapeamento",

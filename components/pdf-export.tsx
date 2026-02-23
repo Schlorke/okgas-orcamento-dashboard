@@ -218,7 +218,7 @@ const PDFExport: React.FC<PDFExportProps> = props => {
     )
     doc.setFontSize(14)
     doc.text(
-      "GB Locações - Relatório de Projeto",
+      "OK Gás Engenharia - Proposta Comercial",
       PDF_CONFIG.A4_WIDTH_MM / 2,
       35,
       { align: "center" }
@@ -339,7 +339,7 @@ const PDFExport: React.FC<PDFExportProps> = props => {
       { align: "center" }
     )
     doc.text(
-      "GB Locações - Dashboard Executivo de Progresso",
+      "OK Gás Engenharia - Dashboard Executivo de Progresso",
       PDF_CONFIG.A4_WIDTH_MM / 2,
       footerY + 20,
       { align: "center" }

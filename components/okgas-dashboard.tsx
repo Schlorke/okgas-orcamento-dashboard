@@ -189,7 +189,7 @@ const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
   return [ref, hasBeenVisible] as const
 }
 
-export default function GBLBudgetPresentation() {
+export default function OkGasDashboard() {
   const dashboardRef = useRef<HTMLDivElement>(null)
   const [isClient, setIsClient] = useState(false)
 
@@ -237,219 +237,166 @@ export default function GBLBudgetPresentation() {
     {
       id: 1,
       key: "E1",
-      title: "Etapa 1 — Apresentação Funcional (Portfólio)",
-      total: 1000,
-      paid: 1000,
+      title:
+        "MVP — Cadastro de Clientes + Gestão de Frotas + Offline-First + Assinatura Digital",
+      total: 14000,
+      paid: 0,
       substeps: [
         {
-          name: "Setup & Arquitetura",
-          value: 200,
+          name: "Setup & Arquitetura Base",
+          value: 1500,
           justification:
-            "Configuração (Next.js + TS), estrutura, lint, rotas públicas, CI/CD e deploy inicial.",
+            "Next.js 14+ (App Router), TypeScript strict, Prisma + PostgreSQL, autenticação (NextAuth.js/Clerk), multi-tenancy (orgId), deploy Vercel + Railway, CI/CD com GitHub Actions.",
         },
         {
-          name: "Catálogo Básico + CMS",
-          value: 500,
+          name: "Arquitetura Offline-First (PWA)",
+          value: 2500,
           justification:
-            "Modelos Category/Equipment, cadastro/edição, listagem pública e imagens.",
+            "Service Workers com Workbox, IndexedDB via Dexie.js, fila de sincronização (SyncQueue), Background Sync API, indicador online/offline na UI, conflict resolution.",
         },
         {
-          name: "UI/UX & Responsividade",
-          value: 200,
+          name: "CRUD Clientes (Entidade Central)",
+          value: 2000,
           justification:
-            "Aplicação do design system, tipografia, grid responsivo e acessibilidade (WCAG 2.2).",
+            "Cadastro completo de clientes como entidade raiz do sistema: nome, CPF/CNPJ, endereço, contato, proprietário, tipo (residencial/comercial/condomínio), status de cadastro Sulgás. Listagem com filtros, busca e paginação.",
         },
         {
-          name: "Deploy & SEO Básico",
-          value: 100,
+          name: "CRUD Veículos + Motoristas",
+          value: 2500,
           justification:
-            "Build, metas/OG, sitemap/robots e setup inicial de analytics.",
+            "Cadastro de 15 veículos (placa, modelo, ano, Nº Frota, RENAVAM, status). Cadastro de motoristas com CNH, validade e vinculação veículo↔motorista. Tabela com filtros por status (Em Circulação / Em Manutenção).",
+        },
+        {
+          name: "Registro de Abastecimento e KM",
+          value: 2000,
+          justification:
+            "Formulários web + offline sync para registrar abastecimento (data, veículo, litros, valor, tipo combustível, posto, KM) e atualização de hodômetro. Salvamento local em IndexedDB quando sem internet.",
+        },
+        {
+          name: "Assinatura Digital do Cliente",
+          value: 1500,
+          justification:
+            "Componente HTML5 Canvas (touch) para captura de assinatura manuscrita do cliente na conclusão de serviço. Registro de nome, CPF, geolocalização (GPS) e timestamp. Funciona offline.",
+        },
+        {
+          name: "Dashboard com KPIs + Layout Base",
+          value: 2000,
+          justification:
+            "Dashboard principal com cards de KPIs (total veículos, consumo mensal, alertas ativos, trocas de óleo pendentes). Sidebar, header, dark mode, responsivo mobile-first.",
         },
       ],
     },
     {
       id: 2,
       key: "E2",
-      title: "Etapa 2 — Painel Administrativo Completo",
-      total: 1200,
-      paid: 1200,
+      title: "Dashboard Real-Time + Inteligência Artificial no WhatsApp",
+      total: 10000,
+      paid: 0,
       substeps: [
         {
-          name: "Autenticação & Proteção",
-          value: 350,
+          name: "Dashboard Tempo Real (Gestor)",
+          value: 2500,
           justification:
-            "NextAuth + 2FA, RBAC (ADMIN/CLIENT), middleware e hardening (OWASP).",
+            "Painel gerencial com WebSockets/SSE para atualização automática. O gestor abre o celular e vê situação de obras, veículos e equipes sem ligar pra ninguém. Push notifications.",
         },
         {
-          name: "CRUD Cat./Equip.",
-          value: 400,
+          name: "Setup N8N + Evolution API",
+          value: 1500,
           justification:
-            "CRUD completo (Zod/RHF), uploads (Vercel Blob), toasts e estados de erro/sucesso.",
+            "Instalação e configuração do N8N (self-hosted) como orquestrador de workflows e Evolution API para conexão com WhatsApp. Webhook de mensagens incoming.",
         },
         {
-          name: "Configurações Globais",
-          value: 250,
+          name: "Bot IA WhatsApp (Claude API)",
+          value: 3500,
           justification:
-            "Logo, telefone, dados institucionais e opções de layout aplicadas no site.",
+            "Integração com Anthropic Claude API para interpretar mensagens em português coloquial. Motorista envia 'abastecimento 250 45L gasolina Shell' e a IA parseia, registra no sistema e confirma via WhatsApp formatado.",
         },
         {
-          name: "QA & Auditoria",
-          value: 200,
+          name: "Histórico de Mensagens + Painel Web",
+          value: 2500,
           justification:
-            "Logs essenciais, testes de fluxo crítico, permissões e micro-otimizações.",
+            "Tela no painel administrativo mostrando todas as mensagens processadas pelo bot, ação identificada, confiança da IA e resposta enviada. Filtros por data, tipo de ação e usuário.",
         },
       ],
     },
     {
       id: 3,
       key: "E3",
-      title: "Etapa 3 — Cadastro/Login de Clientes",
-      total: 1000,
-      paid: 1000,
+      title: "Manutenção Preventiva + Alertas + Notificações WhatsApp",
+      total: 4800,
+      paid: 0,
       substeps: [
         {
-          name: "Cadastro & Validação",
-          value: 300,
+          name: "CRUD Manutenção Preventiva/Corretiva",
+          value: 1800,
           justification:
-            "Criação de contas, confirmação de e-mail, regras de senha e políticas.",
+            "Cadastro de manutenções (tipo, descrição, custo, peças, óleo). Agendamento por KM ou data. Histórico completo por veículo. Troca de óleo (5w30 Syntium, intervalo 10.000 km — padrão da frota OK Gás).",
         },
         {
-          name: "Login Social & Recuperação",
-          value: 400,
+          name: "Sistema de Alertas Inteligentes",
+          value: 1500,
           justification:
-            "OAuth (Google), recuperação de senha e limitação de tentativas.",
+            "Alertas automáticos por severidade (Crítico/Médio/Baixo): vencimento CNH, seguro, CRLV, troca de óleo, manutenção preventiva, consumo anormal de combustível, inconsistência de KM.",
         },
         {
-          name: "Painel do Cliente",
-          value: 300,
-          justification: "Histórico de pedidos, dados pessoais e preferências.",
+          name: "Cron Jobs N8N + Notificações WhatsApp",
+          value: 1500,
+          justification:
+            "Rotina diária às 08h (seg-sex) via N8N: verifica documentos vencendo em 15/30 dias, manutenções próximas, troca de óleo. Envia alerta formatado via WhatsApp para o gestor.",
         },
       ],
     },
     {
       id: 4,
       key: "E4",
-      title: "Etapa 4 — Orçamentos + Notificações",
-      total: 900,
-      paid: 900,
+      title: "Tarefas + Cadastro Inteligente + Workflows de Processos",
+      total: 6400,
+      paid: 0,
       substeps: [
         {
-          name: "Formulário Inteligente",
-          value: 350,
+          name: "Cadastro Automático de Clientes via WhatsApp",
+          value: 2200,
           justification:
-            "Orçamentos com validações contextuais, máscaras e UX guiada.",
+            "Colaborador cola dados do cliente no grupo (CPF, CNPJ, endereço, contato). A IA extrai, estrutura e cadastra automaticamente no sistema, eliminando o retrabalho manual de digitação.",
         },
         {
-          name: "Notificações (E-mail/Queue)",
-          value: 300,
+          name: "Sistema de Tarefas com Delegação",
+          value: 2200,
           justification:
-            "Integração transactional (Resend/SendGrid), templates e filas.",
+            "Criar tarefas via web ou WhatsApp (@menção). Kanban de acompanhamento (Pendente/Em Andamento/Concluída). Notificações automáticas, cobrança de follow-up pela IA, visibilidade de progresso.",
         },
         {
-          name: "Pipeline no Admin",
-          value: 250,
-          justification: "Visualização de status, filtros e ações rápidas.",
+          name: "Workflows de Laudo/ART/Termo",
+          value: 2000,
+          justification:
+            "Checklists automatizados para processos burocráticos: emissão de Laudo RRT, Termo de Conformidade, ART (CREA). Cada workflow com etapas, responsáveis, prazos e status rastreável.",
         },
       ],
     },
     {
       id: 5,
       key: "E5",
-      title: "Etapa 5 — Contratos Digitais (ZapSign)",
-      total: 800,
+      title: "Relatórios com IA + Analytics Gerencial",
+      total: 4800,
       paid: 0,
       substeps: [
         {
-          name: "Templates & Merge",
-          value: 300,
+          name: "Geração de Relatórios via IA",
+          value: 1800,
           justification:
-            "Templates dinâmicos, merge de dados de locação e versionamento de termos.",
-          completed: true,
+            "Relatórios automáticos de abastecimento, manutenção, custos por veículo, desempenho de frota. A IA analisa os dados e gera insights em linguagem natural.",
         },
         {
-          name: "Integração ZapSign/Webhooks",
-          value: 300,
+          name: "Consultas por Linguagem Natural",
+          value: 1500,
           justification:
-            "Criação, assinatura eletrônica e processamento de webhooks.",
+            "Gestor pergunta no WhatsApp: 'qual veículo gastou mais esse mês?' ou 'status das obras em Caxias'. A IA consulta o banco e responde com dados reais formatados.",
         },
         {
-          name: "Status & Auditoria",
-          value: 200,
+          name: "Relatório Semanal Automático + Dashboard Completo",
+          value: 1500,
           justification:
-            "UI de status, trilha de auditoria e reenvio de convites.",
-        },
-      ],
-    },
-    {
-      id: 6,
-      key: "E6",
-      title: "Etapa 6 — Pagamentos Online (Stripe/Mercado Pago)",
-      total: 1200,
-      paid: 0,
-      substeps: [
-        {
-          name: "Checkout Seguro",
-          value: 500,
-          justification:
-            "Sessões de pagamento, itens de locação e impostos/taxas.",
-        },
-        {
-          name: "Webhooks & Antifraude",
-          value: 400,
-          justification:
-            "Verificação de assinatura, eventos e medidas antifraude.",
-        },
-        {
-          name: "Recibos & Confirmações",
-          value: 300,
-          justification: "Recibos, e-mails de confirmação e UI pós-pagamento.",
-        },
-      ],
-    },
-    {
-      id: 7,
-      key: "E7",
-      title: "Etapa 7 — Logística de Entrega/Retirada (Opcional)",
-      total: 900,
-      paid: 0,
-      substeps: [
-        {
-          name: "Endereços & Agendamentos",
-          value: 400,
-          justification:
-            "CRUD de endereços, janelas e regras de disponibilidade.",
-        },
-        {
-          name: "Integração Melhor Envio",
-          value: 300,
-          justification: "Cotações, etiquetas e tracking (quando aplicável).",
-        },
-        {
-          name: "UI Agenda/Rotas",
-          value: 200,
-          justification:
-            "Agenda operacional e visão de rotas/otimização básica.",
-        },
-      ],
-    },
-    {
-      id: 8,
-      key: "E8",
-      title: "Etapa 8 — IA de Recomendação + SEO Avançado",
-      total: 1000,
-      paid: 700,
-      substeps: [
-        {
-          name: "Recomendação IA",
-          value: 600,
-          justification:
-            "Heurística/ML leve para sugerir equipamentos relevantes.",
-        },
-        {
-          name: "SEO Técnico Avançado",
-          value: 400,
-          justification: "Schemas, metas, otimização LCP/CLS e pré-render.",
-          completed: true,
+            "Toda sexta 17h, a IA gera resumo executivo da semana (abastecimentos, KMs, manutenções, tarefas) e envia via WhatsApp para admin/gestor. Dashboard gerencial consolidado no painel web.",
         },
       ],
     },
@@ -475,10 +422,10 @@ export default function GBLBudgetPresentation() {
   )
 
   const market = [
-    { label: "Seu Orçamento (8 etapas)", value: totalPlanned },
-    { label: "Freelancer (mediana)", value: 12000 },
-    { label: "Pequena Agência", value: 20000 },
-    { label: "Software House", value: 40000 },
+    { label: "Seu Orçamento (5 etapas)", value: totalPlanned },
+    { label: "Freelancer Sênior", value: 75000 },
+    { label: "Agência Pequena", value: 120000 },
+    { label: "Software House", value: 225000 },
   ]
 
   const perStageTotals =
@@ -540,17 +487,21 @@ export default function GBLBudgetPresentation() {
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-300/25 bg-gradient-to-r from-purple-400/15 to-violet-400/15 px-4 py-2 backdrop-blur-2xl">
             <div className="h-2 w-2 animate-pulse rounded-full bg-purple-300" />
             <span className="text-sm font-medium text-purple-200">
-              Projeto em Andamento
+              Proposta Comercial
             </span>
           </div>
           <h1 className="bg-gradient-to-r from-white via-purple-200 to-violet-300 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
-            GB Locações
+            OK Gás Engenharia
           </h1>
           <p className="text-lg font-medium text-gray-300">
             Dashboard Executivo de Progresso
           </p>
           <p className="text-sm text-gray-400">
-            Atualizado em {new Date().toLocaleDateString("pt-BR")} • Versão 2.0
+            Sistema SaaS — Gestão de Frotas, IA no WhatsApp e Controle de
+            Processos
+          </p>
+          <p className="text-sm text-gray-400">
+            23/02/2026 • Versão 1.0 • Harry | Desenvolvedor Full-Stack
           </p>
         </div>
         <div className="flex gap-3">
@@ -837,24 +788,22 @@ export default function GBLBudgetPresentation() {
               </h3>
               <ul className="space-y-3 text-sm leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <CheckIcon />
+                  <span className="text-lg">📋</span>
                   <span className="text-white">
-                    <span className="font-semibold">Etapa 1 concluída</span> —
-                    Portfólio funcional entregue e aprovado
+                    Proposta comercial apresentada ao cliente
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ZapIcon />
+                  <span className="text-lg">🎯</span>
                   <span className="text-white">
-                    <span className="font-semibold">Etapa 2 em andamento</span>{" "}
-                    — Painel administrativo (67% concluído)
+                    5 etapas planejadas — entrega modular com valor incremental
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-lg">📊</span>
                   <span className="text-white">
-                    <span className="font-semibold">Progresso geral:</span>{" "}
-                    {percentPaid}% do investimento total recebido
+                    Investimento total: R$ 40.000 — prazo estimado: 18-24
+                    semanas
                   </span>
                 </li>
               </ul>
@@ -869,21 +818,37 @@ export default function GBLBudgetPresentation() {
                   <span className="text-lg">💰</span>
                   <span className="text-white">
                     <span className="font-semibold">Preço competitivo:</span>{" "}
-                    50% menor que agências tradicionais
+                    até 80% menor que software houses
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-lg">🎯</span>
+                  <span className="text-lg">🧩</span>
                   <span className="text-white">
                     <span className="font-semibold">Entrega modular:</span>{" "}
-                    Valor incremental a cada etapa
+                    valor a cada etapa, pague conforme recebe
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-lg">🚀</span>
                   <span className="text-white">
                     <span className="font-semibold">Tecnologia moderna:</span>{" "}
-                    Next.js, TypeScript, arquitetura escalável
+                    Next.js, TypeScript, IA (Claude), PWA offline-first
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-lg">📱</span>
+                  <span className="text-white">
+                    <span className="font-semibold">WhatsApp como interface:</span>{" "}
+                    equipe de campo registra dados por mensagem
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-lg">🔧</span>
+                  <span className="text-white">
+                    <span className="font-semibold">
+                      Complementar ao ExpertaSYS:
+                    </span>{" "}
+                    não substitui, preenche as lacunas operacionais
                   </span>
                 </li>
               </ul>
@@ -942,7 +907,7 @@ export default function GBLBudgetPresentation() {
           <Stat
             label="Total Planejado"
             value={brl.format(totalPlanned)}
-            hint="Soma das 8 etapas"
+            hint="Soma das 5 etapas"
           />
           <Stat
             label="Recebido"

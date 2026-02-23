@@ -21,7 +21,7 @@ adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 - Dashboard executivo completo com visualizações interativas
 - Sistema de exportação PDF com captura visual de alta qualidade
-- 8 etapas estruturadas do projeto GB Locações
+- 5 etapas estruturadas do projeto OK Gás Engenharia
 - Gráficos interativos com Recharts:
   - Gráfico de barras para progresso por etapa
   - Gráfico de linha para acumulado planejado vs recebido
@@ -125,7 +125,7 @@ adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## 🔗 Links
 
-- [Repositório](https://github.com/gb-locacoes/dashboard-executivo)
-- [Issues](https://github.com/gb-locacoes/dashboard-executivo/issues)
-- [Releases](https://github.com/gb-locacoes/dashboard-executivo/releases)
+- [Repositório](https://github.com/okgas/dashboard-executivo)
+- [Issues](https://github.com/okgas/dashboard-executivo/issues)
+- [Releases](https://github.com/okgas/dashboard-executivo/releases)
 - [Documentação](./docs/README.md)

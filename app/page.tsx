@@ -1,5 +1,5 @@
-import GBLocacoesComplete from "@/components/gb-locacoes-complete"
+import OkGasDashboard from "@/components/okgas-dashboard"
 
 export default function Home() {
-  return <GBLocacoesComplete />
+  return <OkGasDashboard />
 }

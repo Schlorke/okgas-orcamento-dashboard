@@ -25,7 +25,7 @@ Este projeto e todos os participantes são regidos pelo nosso
 Encontrou um bug? Aqui está como reportá-lo:
 
 1. **Verifique se já foi reportado** - procure em
-   [Issues existentes](https://github.com/gb-locacoes/dashboard-executivo/issues)
+   [Issues existentes](https://github.com/okgas/dashboard-executivo/issues)
 2. **Use o template de bug** - isso nos ajuda a reproduzir o problema
 3. **Seja específico** - inclua versões, sistema operacional, navegador, etc.
 4. **Anexe screenshots** - uma imagem vale mais que mil palavras
@@ -35,7 +35,7 @@ Encontrou um bug? Aqui está como reportá-lo:
 Tem uma ideia para melhorar o projeto?
 
 1. **Verifique se já foi sugerido** - procure em
-   [Issues e Discussions](https://github.com/gb-locacoes/dashboard-executivo/discussions)
+   [Issues e Discussions](https://github.com/okgas/dashboard-executivo/discussions)
 2. **Use o template de feature request**
 3. **Explique o valor** - por que esta melhoria seria útil?
 4. **Forneça exemplos** - como funcionaria na prática?
@@ -294,8 +294,8 @@ Usamos labels para organizar issues e PRs:
 
 - **📖 Documentação**: [docs/README.md](./docs/README.md)
 - **💬 Discussions**:
-  [GitHub Discussions](https://github.com/gb-locacoes/dashboard-executivo/discussions)
-- **📧 Email**: <dev@gb-locacoes.com>
+  [GitHub Discussions](https://github.com/okgas/dashboard-executivo/discussions)
+- **📧 Email**: <contato@okgas.eng.br>
 
 ---
 

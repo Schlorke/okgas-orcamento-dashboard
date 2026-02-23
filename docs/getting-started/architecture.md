@@ -150,7 +150,7 @@ O sistema é construído seguindo princípios de **arquitetura moderna**, **esca
 
 \`\`\` dashboard-executivo-de-progresso/ ├── app/ # App Router (Next.js 15) │ ├── globals.css #
 Estilos globais │ ├── layout.tsx # Layout principal │ └── page.tsx # Página inicial ├──
-components/ # Componentes React │ ├── gb-locacoes-complete.tsx # Dashboard principal │ ├──
+components/ # Componentes React │ ├── okgas-dashboard.tsx # Dashboard principal │ ├──
 pdf-export.tsx # Exportação PDF │ └── theme-provider.tsx # Provedor de tema ├── lib/ # Utilitários e
 helpers │ └── utils.ts # Funções utilitárias ├── public/ # Assets estáticos ├── styles/ # Estilos
 adicionais ├── docs/ # Documentação └── scripts/ # Scripts de automação \`\`\`
