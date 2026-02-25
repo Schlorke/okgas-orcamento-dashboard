@@ -3,7 +3,7 @@
 /**
  * Header da animação de introdução: tela cheia com logo → recolhe para barra fixa com nav.
  * Escuta o evento 'page-ready' e aplica a sequência de classes/timers descrita na documentação.
- * Logo da intro: okgas_flame_blue_preview.png em public/
+ * Logo da intro: okgas_flame_blue_preview.webp em public/
  */
 import { useEffect, useState, useCallback } from "react"
 import dynamic from "next/dynamic"
@@ -102,7 +102,7 @@ const IntroHeader = () => {
           <span className="logo-text-fallback">OK Gás Engenharia</span>
         ) : (
           <Image
-            src="/okgas_flame_blue_preview.png"
+            src="/okgas_flame_blue_preview.webp"
             alt="OK Gás Engenharia"
             width={260}
             height={260}
