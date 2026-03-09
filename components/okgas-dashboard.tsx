@@ -214,11 +214,12 @@ export default function OkGasDashboard() {
       title:
         "MVP — Cadastro de Clientes + Gestão de Frotas + Offline-First + Assinatura Digital",
       total: 14000,
-      paid: 0,
+      paid: 1500,
       substeps: [
         {
           name: "Setup & Arquitetura Base",
           value: 1500,
+          completed: true,
           justification:
             "Next.js 14+ (App Router), TypeScript strict, Prisma + PostgreSQL, autenticação (NextAuth.js/Clerk), multi-tenancy (orgId), deploy Vercel + Railway, CI/CD com GitHub Actions.",
         },
@@ -690,28 +691,34 @@ export default function OkGasDashboard() {
               return (
                 <div
                   key={i}
-                  className="group/substep flex items-start gap-3 rounded-xl border border-transparent bg-linear-to-r from-blue-800/15 to-transparent p-3 backdrop-blur-xl transition-all duration-600 ease-in-out hover:border-blue-400/25 hover:from-blue-700/25 hover:to-sky-800/15 sm:gap-4 sm:rounded-2xl sm:p-4"
+                  className={`group/substep flex items-start gap-3 rounded-xl border p-3 backdrop-blur-xl transition-all duration-600 ease-in-out sm:gap-4 sm:rounded-2xl sm:p-4 ${
+                    isSubstepCompleted
+                      ? "border-slate-500/20 bg-linear-to-r from-slate-700/25 to-slate-800/10 opacity-75"
+                      : "border-transparent bg-linear-to-r from-blue-800/15 to-transparent hover:border-blue-400/25 hover:from-blue-700/25 hover:to-sky-800/15"
+                  }`}
                 >
                   <div
                     className={`mt-2 h-3 w-3 shrink-0 rounded-full bg-linear-to-br shadow-lg ${
-                      [
-                        "from-blue-400 to-blue-600",
-                        "from-sky-400 to-sky-600",
-                        "from-blue-300 to-blue-500",
-                        "from-sky-300 to-sky-500",
-                      ][i % 4]
+                      isSubstepCompleted
+                        ? "from-slate-300 to-slate-500"
+                        : [
+                            "from-blue-400 to-blue-600",
+                            "from-sky-400 to-sky-600",
+                            "from-blue-300 to-blue-500",
+                            "from-sky-300 to-sky-500",
+                          ][i % 4]
                     }`}
                   />
                   <div className="min-w-0 flex-1">
                     <div
-                      className={`mb-1 text-sm font-semibold text-white ${
+                      className={`mb-1 text-sm font-semibold ${
                         isSubstepCompleted ? "relative" : ""
-                      }`}
+                      } ${isSubstepCompleted ? "text-slate-200/90" : "text-white"}`}
                       style={
                         isSubstepCompleted
                           ? {
                               textDecoration: "line-through",
-                              textDecorationColor: "#ffffff",
+                              textDecorationColor: "#cbd5e1",
                               textDecorationThickness: "1.5px",
                               textDecorationStyle: "solid",
                             }
@@ -720,17 +727,25 @@ export default function OkGasDashboard() {
                     >
                       {s.name}
                     </div>
-                    <p className="text-xs leading-relaxed text-blue-200">
+                    <p
+                      className={`text-xs leading-relaxed ${
+                        isSubstepCompleted ? "text-slate-300/80" : "text-blue-200"
+                      }`}
+                    >
                       {s.justification}
                     </p>
                   </div>
                   <div
-                    className="rounded-full border border-blue-400/25 bg-linear-to-r from-blue-800/50 to-sky-800/50 px-2 py-0.5 text-xs font-bold whitespace-nowrap text-white backdrop-blur-xl sm:px-3 sm:py-1 sm:text-sm"
+                    className={`rounded-full border px-2 py-0.5 text-xs font-bold whitespace-nowrap backdrop-blur-xl sm:px-3 sm:py-1 sm:text-sm ${
+                      isSubstepCompleted
+                        ? "border-slate-400/30 bg-linear-to-r from-slate-700/60 to-slate-800/60 text-slate-100/90"
+                        : "border-blue-400/25 bg-linear-to-r from-blue-800/50 to-sky-800/50 text-white"
+                    }`}
                     style={
                       isSubstepCompleted
                         ? {
                             textDecoration: "line-through",
-                            textDecorationColor: "#ffffff",
+                            textDecorationColor: "#cbd5e1",
                             textDecorationThickness: "2px",
                             textDecorationStyle: "solid",
                           }
