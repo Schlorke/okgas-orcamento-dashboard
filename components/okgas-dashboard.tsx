@@ -214,7 +214,7 @@ export default function OkGasDashboard() {
       title:
         "MVP — Cadastro de Clientes + Gestão de Frotas + Offline-First + Assinatura Digital",
       total: 14000,
-      paid: 1500,
+      paid: 4000,
       substeps: [
         {
           name: "Setup & Arquitetura Base",
@@ -256,6 +256,7 @@ export default function OkGasDashboard() {
         {
           name: "Dashboard com KPIs + Layout Base",
           value: 2000,
+          completed: true,
           justification:
             "Dashboard principal com cards de KPIs (total veículos, consumo mensal, alertas ativos, trocas de óleo pendentes). Sidebar, header, dark mode, responsivo mobile-first.",
         },
